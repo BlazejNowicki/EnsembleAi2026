@@ -10,15 +10,8 @@ from src.crop_line import crop_line_simple
 from src.detect_rectangles import detect_rectangles
 from src.extract_ink import extract_ink
 from src.load_annotations import load_annotations, Annotation
-
-DATA_PATH = Path('data1')
-IMAGES_PATH = DATA_PATH / 'images'
-
-
-def save_step(step_name: str, filename: str, image: np.ndarray):
-    step_path = DATA_PATH / 'steps' / step_name
-    step_path.mkdir(exist_ok=True, parents=True)
-    cv2.imwrite(str(step_path / filename), image)
+from src.read_signal import read_signal
+from src.utils import IMAGES_PATH, save_step, DATA_PATH
 
 
 def convert_annotation_to_abs(annotation: Annotation, image_shape: tuple[int, int]) -> Annotation:
@@ -45,6 +38,9 @@ def digitize(filename: str, annotation: Annotation):
     save_step('2_cropped_1', filename, line1 * 255)
     save_step('2_cropped_2', filename, line2 * 255)
     save_step('2_cropped_3', filename, line3 * 255)
+
+    sub_dict = read_signal(line1, line2, line3, filename)
+    return sub_dict
 
 
 def main():

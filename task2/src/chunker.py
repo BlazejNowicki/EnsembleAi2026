@@ -7,16 +7,16 @@ from src.file_walker import walk_py_files
 from src.ast_parser import parse_file, CodeChunk
 
 
-def chunk_repository(repo_root: str, completion_file_path: str) -> list[CodeChunk]:
+def chunk_repository(repo_root: str, exclude_path: str | None = None) -> list[CodeChunk]:
     """Walk all .py files in *repo_root*, parse each with AST, return flat list of chunks.
 
-    *completion_file_path* is excluded (it's the file being completed).
+    *exclude_path* is an optional relative path to skip (e.g. the completion file).
     """
     cfg = get_config()["chunker"]
     max_lines = cfg["max_chunk_lines"]
     overlap = cfg["chunk_overlap_lines"]
 
-    files = walk_py_files(repo_root, exclude_relative=completion_file_path)
+    files = walk_py_files(repo_root, exclude_relative=exclude_path)
 
     all_chunks: list[CodeChunk] = []
     for fi in files:

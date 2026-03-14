@@ -69,3 +69,6 @@ reranker:
 
 query_analyzer:
   recent_lines: 15
+
+context_composer:
+  max_chars: 8000

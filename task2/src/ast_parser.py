@@ -67,7 +67,7 @@ def parse_file(content: str, file_path: str) -> list[CodeChunk]:
     # --- pass 2: classes and top-level functions ---
     for node in ast.iter_child_nodes(tree):
         if isinstance(node, ast.ClassDef):
-            _process_class(node, file_path, lines, chunks, claimed)
+            _process_class(node, file_path, lines, chunks, claimed, parent_scope="")
         elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
             _emit_func(node, file_path, lines, chunks, claimed, parent_class="")
 
@@ -96,9 +96,13 @@ def _process_class(
     lines: list[str],
     chunks: list[CodeChunk],
     claimed: set[int],
+    parent_scope: str = "",
 ) -> None:
     cls_start = _node_start(node)
     cls_end = _node_end(node)
+
+    # full qualified scope for children: e.g. "AnalysisEngine.Config"
+    qualified_name = f"{parent_scope}.{node.name}" if parent_scope else node.name
 
     # claim all class lines
     for ln in range(cls_start, cls_end + 1):
@@ -106,21 +110,27 @@ def _process_class(
 
     methods = [n for n in ast.iter_child_nodes(node)
                if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))]
+    nested_classes = [n for n in ast.iter_child_nodes(node)
+                      if isinstance(n, ast.ClassDef)]
 
-    if not methods:
+    children = methods + nested_classes
+    if not children:
         src = _lines_source(lines, cls_start, cls_end)
-        chunks.append(CodeChunk(file_path, "class", node.name, "", cls_start, cls_end, src))
+        chunks.append(CodeChunk(file_path, "class", node.name, parent_scope, cls_start, cls_end, src))
         return
 
-    # header = everything before first method
-    first_method_start = min(_node_start(m) for m in methods)
-    header_end = first_method_start - 1
+    # header = everything before first child (method or nested class)
+    first_child_start = min(_node_start(c) for c in children)
+    header_end = first_child_start - 1
     if header_end >= cls_start:
         src = _lines_source(lines, cls_start, header_end)
-        chunks.append(CodeChunk(file_path, "class", node.name, "", cls_start, header_end, src))
+        chunks.append(CodeChunk(file_path, "class", node.name, parent_scope, cls_start, header_end, src))
 
     for m in methods:
-        _emit_func(m, file_path, lines, chunks, claimed, parent_class=node.name)
+        _emit_func(m, file_path, lines, chunks, claimed, parent_class=qualified_name)
+
+    for nc in nested_classes:
+        _process_class(nc, file_path, lines, chunks, claimed, parent_scope=qualified_name)
 
 
 def _emit_func(

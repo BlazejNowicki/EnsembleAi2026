@@ -4,6 +4,8 @@ Indexer pipeline for the RAG-based context collection strategy.
 Currently implements:
   - T1: DFS file walking
   - T2: AST parsing into structural chunks
+  - T3: Chunker (split oversized chunks)
+  - T4: Enrichment (called_symbols, used_imports, text_for_embedding, text_for_bm25)
 
 Usage:
     poetry run python indexer.py --stage start --lang python
@@ -11,13 +13,12 @@ Usage:
 
 import os
 import argparse
-from collections import Counter
 
 import jsonlines
 from tqdm import tqdm
 
-from src.file_walker import walk_py_files
-from src.ast_parser import parse_file
+from src.chunker import chunk_repository, print_stats
+from src.enrichment import enrich_chunks
 
 
 def get_repo_root(language: str, stage: str, datapoint: dict) -> str:
@@ -26,25 +27,15 @@ def get_repo_root(language: str, stage: str, datapoint: dict) -> str:
     return os.path.join("data", f"repositories-{language}-{stage}", f"{repo_path}-{revision}")
 
 
-def index_repo(repo_root: str, completion_file_path: str) -> None:
-    """Walk files, parse AST, print summary. Will grow with T3-T6."""
-    files = walk_py_files(repo_root, exclude_relative=completion_file_path)
-    print(f"  Files found: {len(files)}  |  Total lines: {sum(f.num_lines for f in files)}")
+def index_repo(repo_root: str, completion_file_path: str):
+    """Chunk repository, enrich chunks, return enriched list."""
+    chunks = chunk_repository(repo_root, completion_file_path)
+    print_stats(chunks)
 
-    all_chunks = []
-    type_counts: Counter = Counter()
+    enriched = enrich_chunks(chunks)
+    print(f"  Enriched: {len(enriched)}")
 
-    for fi in files:
-        chunks = parse_file(fi.content, fi.relative_path)
-        all_chunks.extend(chunks)
-        for c in chunks:
-            type_counts[c.chunk_type] += 1
-
-    print(f"  Chunks: {len(all_chunks)}")
-    for t, count in type_counts.most_common():
-        print(f"    {t:15s}: {count}")
-
-    return all_chunks
+    return enriched
 
 
 def main():

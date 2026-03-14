@@ -2,3 +2,7 @@ requests
 pandas
 dotenv
 pyarrow
+scikit-fingerprints
+scikit-learn
+lightgbm
+tqdm

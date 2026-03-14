@@ -3,8 +3,11 @@ from __future__ import annotations
 import os
 from dataclasses import dataclass
 
+from src.config import get_config
 
-SKIP_DIRS = {"__pycache__", ".git", ".tox", "venv", ".venv", "node_modules", ".eggs", ".mypy_cache"}
+
+def _skip_dirs() -> set[str]:
+    return set(get_config()["chunker"]["skip_dirs"])
 
 
 @dataclass
@@ -32,7 +35,7 @@ def walk_py_files(root_dir: str, exclude_relative: str | None = None) -> list[Fi
 
     for dirpath, dirnames, filenames in os.walk(root_dir):
         # prune directories we never want to enter (in-place)
-        dirnames[:] = [d for d in dirnames if d not in SKIP_DIRS]
+        dirnames[:] = [d for d in dirnames if d not in _skip_dirs()]
 
         for filename in filenames:
             if not filename.endswith(".py"):

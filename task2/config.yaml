@@ -1,0 +1,61 @@
+chunker:
+  # directories to skip during file walking
+  skip_dirs:
+    - __pycache__
+    - .git
+    - .tox
+    - venv
+    - .venv
+    - node_modules
+    - .eggs
+    - .mypy_cache
+
+  # minimum lines for a file to be included
+  min_file_lines: 1
+
+  # chunks larger than this get split with overlap
+  max_chunk_lines: 200
+  chunk_overlap_lines: 20
+
+enrichment:
+  # python keywords/builtins to ignore in BM25 tokenization
+  bm25_stopwords:
+    - self
+    - cls
+    - def
+    - class
+    - return
+    - import
+    - from
+    - None
+    - True
+    - False
+    - if
+    - else
+    - elif
+    - for
+    - while
+    - try
+    - except
+    - finally
+    - with
+    - as
+    - pass
+    - break
+    - continue
+    - raise
+    - yield
+    - and
+    - or
+    - not
+    - in
+    - is
+    - lambda
+
+embedder:
+  model: "BAAI/bge-base-en-v1.5"
+  batch_size: 64
+  index_dir: "data/indices"
+
+query_analyzer:
+  recent_lines: 15

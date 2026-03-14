@@ -66,7 +66,7 @@ def detect_rectangles(mask_1: np.ndarray) -> List[np.ndarray]:
                 if density < 0.15:
                     # Get the 4 corners of the rotated bounding box for drawing/returning
                     box = cv2.boxPoints(rect)
-                    box = np.int8(box)
+                    box = np.int32(box)
                     detected_pulses.append(box)
 
     return detected_pulses

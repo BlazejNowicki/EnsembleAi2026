@@ -3,3 +3,5 @@ ecg/
 data*/
 
 **/__pycache__/
+
+annotations.xml

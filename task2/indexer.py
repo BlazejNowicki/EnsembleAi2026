@@ -1,11 +1,7 @@
 """
 Indexer pipeline for the RAG-based context collection strategy.
 
-Currently implements:
-  - T1: DFS file walking
-  - T2: AST parsing into structural chunks
-  - T3: Chunker (split oversized chunks)
-  - T4: Enrichment (called_symbols, used_imports, text_for_embedding, text_for_bm25)
+Pipeline: T1 (walk) -> T2 (AST parse) -> T3 (chunk) -> T4 (enrich) -> T5 (embed + Qdrant)
 
 Usage:
     poetry run python indexer.py --stage start --lang python
@@ -19,6 +15,7 @@ from tqdm import tqdm
 
 from src.chunker import chunk_repository, print_stats
 from src.enrichment import enrich_chunks
+from src.qdrant_indexer import build_hybrid_index
 
 
 def get_repo_root(language: str, stage: str, datapoint: dict) -> str:
@@ -27,15 +24,17 @@ def get_repo_root(language: str, stage: str, datapoint: dict) -> str:
     return os.path.join("data", f"repositories-{language}-{stage}", f"{repo_path}-{revision}")
 
 
-def index_repo(repo_root: str, completion_file_path: str):
-    """Chunk repository, enrich chunks, return enriched list."""
+def index_repo(repo_root: str, completion_file_path: str) -> str:
+    """Chunk, enrich, embed into Qdrant. Returns collection name."""
     chunks = chunk_repository(repo_root, completion_file_path)
     print_stats(chunks)
 
     enriched = enrich_chunks(chunks)
     print(f"  Enriched: {len(enriched)}")
 
-    return enriched
+    repo_id = os.path.basename(repo_root)
+    col_name = build_hybrid_index(enriched, repo_id)
+    return col_name
 
 
 def main():

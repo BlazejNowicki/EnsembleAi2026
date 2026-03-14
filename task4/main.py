@@ -48,14 +48,12 @@ def main():
         shutil.rmtree(DATA_PATH / 'steps')
 
     png_files = [p.name for p in IMAGES_PATH.glob('*.png')]
-    png_files = [png_files[0]]
+    png_files = [list(sorted(png_files))[0]]
 
     annotations = load_annotations()
 
     annotations = {k: v for k, v in annotations.items() if v is not None}
     annotation = annotations['ecg_test_0001.png']
-
-    print(annotation)
 
     annotations = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),
                    (0.05412121212121212, 0.7512666666666666), (0.9484060606060606, 0.4041686274509804),

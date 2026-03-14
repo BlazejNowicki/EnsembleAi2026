@@ -64,9 +64,9 @@ def read_line_signal(image: np.ndarray):
     s3 = read_lead_signal(image3)
     s4 = read_lead_signal(image4)
 
-    plt.plot(s1)
-    plt.savefig("data1/s1.png", dpi=300, bbox_inches="tight")
-    plt.close()
+    # plt.plot(s1)
+    # plt.savefig("data1/s1.png", dpi=300, bbox_inches="tight")
+    # plt.close()
 
     return s1, s2, s3, s4
 

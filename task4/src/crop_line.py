@@ -47,7 +47,7 @@ def crop_line_simple(image, x1, y, x2):
     # x1 = int(x1 * image.shape[1])
     # x2 = int(x2 * image.shape[1])
     # y = int(y * image.shape[0])
-    width_ratio = 0.3
+    width_ratio = 0.05
     w = int((x2 - x1) * width_ratio)
     # print(x1, x2, y, w)
 

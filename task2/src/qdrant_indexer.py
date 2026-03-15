@@ -52,16 +52,22 @@ _SAFE_NAME_RE = re.compile(r"[^a-zA-Z0-9_-]")
 
 
 def _safe_collection_name(repo_id: str) -> str:
-    return _SAFE_NAME_RE.sub("_", repo_id)
+    cfg = get_config()
+    chunk_size = cfg["chunker"]["max_chunk_lines"]
+    chunk_overlap = cfg["chunker"]["chunk_overlap_lines"]
+    embedder = cfg["embedder"]["model"].replace("/", "_")
+    raw = f"{repo_id}_{chunk_size}_{chunk_overlap}_{embedder}"
+    return _SAFE_NAME_RE.sub("_", raw)
 
 
-def init_qdrant_collection(client: QdrantClient, collection_name: str) -> None:
+def init_qdrant_collection(client: QdrantClient, collection_name: str) -> bool:
+    """Create collection if it doesn't exist. Returns True if already existed."""
     cfg = get_config()["embedder"]
     dim = cfg["embedding_dim"]
 
-    # stateless: always rebuild from scratch
+    # reuse existing collection if it already exists
     if client.collection_exists(collection_name):
-        client.delete_collection(collection_name)
+        return True
 
     client.create_collection(
         collection_name=collection_name,
@@ -72,6 +78,7 @@ def init_qdrant_collection(client: QdrantClient, collection_name: str) -> None:
             "sparse_bm25": SparseVectorParams(),
         },
     )
+    return False
 
 
 def _embed_dense(texts: list[str], batch_size: int = 64) -> list[list[float]]:
@@ -99,7 +106,11 @@ def build_hybrid_index(chunks: list[EnrichedChunk], repo_id: str) -> str:
 
     client = get_qdrant_client()
     col_name = _safe_collection_name(repo_id)
-    init_qdrant_collection(client, col_name)
+    already_exists = init_qdrant_collection(client, col_name)
+
+    if already_exists:
+        print(f"  Qdrant: reusing existing collection '{col_name}'.")
+        return col_name
 
     dense_texts = [c.text_for_embedding for c in chunks]
     print(f"  Embedding {len(dense_texts)} chunks (dense)...")

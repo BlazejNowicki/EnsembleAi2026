@@ -15,6 +15,7 @@ def chunk_repository(repo_root: str, exclude_path: str | None = None) -> list[Co
     cfg = get_config()["chunker"]
     max_lines = cfg["max_chunk_lines"]
     overlap = cfg["chunk_overlap_lines"]
+    max_chars = cfg.get("max_chunk_chars", 0)
 
     files = walk_py_files(repo_root, exclude_relative=exclude_path)
 
@@ -28,7 +29,36 @@ def chunk_repository(repo_root: str, exclude_path: str | None = None) -> list[Co
             else:
                 all_chunks.append(chunk)
 
+    if max_chars > 0:
+        all_chunks = [_cap_chars(c, max_chars) for c in all_chunks]
+
     return all_chunks
+
+
+def _cap_chars(chunk: CodeChunk, max_chars: int) -> CodeChunk:
+    """Truncate chunk source to max_chars, keeping whole lines."""
+    if len(chunk.source) <= max_chars:
+        return chunk
+    lines = chunk.source.splitlines(keepends=True)
+    kept: list[str] = []
+    total = 0
+    for line in lines:
+        if total + len(line) > max_chars:
+            break
+        kept.append(line)
+        total += len(line)
+    if not kept:
+        kept = [chunk.source[:max_chars]]
+    new_end = chunk.start_line + len(kept) - 1
+    return CodeChunk(
+        file_path=chunk.file_path,
+        chunk_type=chunk.chunk_type,
+        name=chunk.name,
+        parent_class=chunk.parent_class,
+        start_line=chunk.start_line,
+        end_line=new_end,
+        source="".join(kept),
+    )
 
 
 def _split_chunk(chunk: CodeChunk, max_lines: int, overlap: int) -> list[CodeChunk]:

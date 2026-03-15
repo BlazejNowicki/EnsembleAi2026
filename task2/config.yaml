@@ -14,8 +14,11 @@ chunker:
   min_file_lines: 1
 
   # chunks larger than this get split with overlap
-  max_chunk_lines: 150  
+  max_chunk_lines: 150
   chunk_overlap_lines: 15
+
+  # hard character cap per chunk (protects embedder from long lines)
+  max_chunk_chars: 20000
 
 enrichment:
   # python keywords/builtins to ignore in BM25 tokenization

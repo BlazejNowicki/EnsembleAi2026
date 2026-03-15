@@ -31,8 +31,8 @@ def extract_ink(image: np.ndarray, sensitivity: int) -> np.ndarray:
 
     # 4. Apply a slight morphological closing to bridge tiny gaps in the ink lines
     # This is highly recommended for ECGs to keep the pulse lines continuous
-    kernel = np.ones((3, 3), np.uint8)
-    mask_255 = cv2.morphologyEx(mask_255, cv2.MORPH_CLOSE, kernel)
+    # kernel = np.ones((3, 3), np.uint8)
+    # mask_255 = cv2.morphologyEx(mask_255, cv2.MORPH_CLOSE, kernel)
 
     # 5. Convert the 255 mask to a 0 and 1 mask as requested
     mask_1 = (mask_255 / 255).astype(np.uint8)

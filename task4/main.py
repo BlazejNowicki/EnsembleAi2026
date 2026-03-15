@@ -1,5 +1,6 @@
 import os
 import shutil
+from typing import Any
 
 import numpy as np
 from tqdm import tqdm
@@ -11,13 +12,17 @@ from src.load_annotations import load_annotations, Annotation
 from src.read_signal import read_signal
 from src.utils import IMAGES_PATH, save_step, DATA_PATH, NPZ_FILE, SUBMIT
 
+DEFAULT_ANNOTATION = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),
+                      (0.05412121212121212, 0.7512666666666666), (0.9484060606060606, 0.4041686274509804),
+                      (0.9482363636363635, 0.5759254901960784), (0.9481999999999999, 0.7446196078431373))
 
-def convert_annotation_to_abs(annotation: Annotation, image_shape: tuple[int, int]) -> Annotation:
+
+def convert_annotation_to_abs(annotation: Any, image_shape: tuple[int, int]) -> Annotation:
     height, width = image_shape[:2]
     return tuple((float(x * width), float(y * height)) for x, y in annotation)
 
 
-def digitize(filename: str, annotation: Annotation):
+def digitize(filename: str, default: bool, annotation: Annotation | None):
     path = IMAGES_PATH / filename
 
     image = cv2.imread(str(path))
@@ -29,11 +34,19 @@ def digitize(filename: str, annotation: Annotation):
 
     save_step('1_ink', filename, image * 255)
 
-    annotation = convert_annotation_to_abs(annotation, image.shape[:2])
-
-    line1 = crop_line_simple(image, annotation[0][0], annotation[0][1], annotation[3][0])
-    line2 = crop_line_simple(image, annotation[1][0], annotation[1][1], annotation[4][0])
-    line3 = crop_line_simple(image, annotation[2][0], annotation[2][1], annotation[5][0])
+    if default:
+        annotation = DEFAULT_ANNOTATION
+        annotation = convert_annotation_to_abs(annotation, image.shape[:2])
+        line1 = crop_line_simple(image, annotation[0][0], annotation[0][1], annotation[3][0])
+        line2 = crop_line_simple(image, annotation[1][0], annotation[1][1], annotation[4][0])
+        line3 = crop_line_simple(image, annotation[2][0], annotation[2][1], annotation[5][0])
+    else:
+        # todo: change to real rotation
+        annotation = DEFAULT_ANNOTATION
+        annotation = convert_annotation_to_abs(annotation, image.shape[:2])
+        line1 = crop_line_simple(image, annotation[0][0], annotation[0][1], annotation[3][0])
+        line2 = crop_line_simple(image, annotation[1][0], annotation[1][1], annotation[4][0])
+        line3 = crop_line_simple(image, annotation[2][0], annotation[2][1], annotation[5][0])
 
     save_step('2_cropped_1', filename, line1 * 255)
     save_step('2_cropped_2', filename, line2 * 255)
@@ -49,23 +62,23 @@ def main():
 
     png_files = [p.name for p in IMAGES_PATH.glob('*.png')]
 
-    #if not SUBMIT:
-     #   png_files = [list(sorted(png_files))[0]]
+    # if not SUBMIT:
+    #   png_files = [list(sorted(png_files))[0]]
 
     annotations = load_annotations()
 
     annotations = {k: v for k, v in annotations.items() if v is not None}
-    annotation = annotations['ecg_test_0001.png']
+    # annotation = annotations['ecg_test_0003.png']
 
-    annotations = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),
-                   (0.05412121212121212, 0.7512666666666666), (0.9484060606060606, 0.4041686274509804),
-                   (0.9482363636363635, 0.5759254901960784), (0.9481999999999999, 0.7446196078431373))
+    # annotations = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),
+    #                (0.05412121212121212, 0.7512666666666666), (0.9484060606060606, 0.4041686274509804),
+    #                (0.9482363636363635, 0.5759254901960784), (0.9481999999999999, 0.7446196078431373))
 
     # (0.054, 0.948)
 
     final_dict = {}
     for file in tqdm(png_files):
-        sub_dict = digitize(file, annotation)
+        sub_dict = digitize(file, default=True, annotation=None)
         final_dict |= sub_dict
 
     if SUBMIT:

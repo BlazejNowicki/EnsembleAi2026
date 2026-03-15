@@ -6,7 +6,7 @@ from tqdm import tqdm
 import cv2
 
 from src.crop_line import crop_line_simple
-from src.extract_ink import extract_ink
+from src.extract_ink import extract_ink, adaptive_extract_ink
 from src.load_annotations import load_annotations, Annotation
 from src.read_signal import read_signal
 from src.utils import IMAGES_PATH, save_step, DATA_PATH, NPZ_FILE, SUBMIT
@@ -24,7 +24,9 @@ def digitize(filename: str, annotation: Annotation):
     if image is None:
         raise ValueError(f"Failed to load image at {path}. Check file format.")
 
-    image = extract_ink(image)
+    # image = extract_ink(image, sensitivity=100)
+    image = adaptive_extract_ink(image)
+
     save_step('1_ink', filename, image * 255)
 
     annotation = convert_annotation_to_abs(annotation, image.shape[:2])
@@ -47,8 +49,8 @@ def main():
 
     png_files = [p.name for p in IMAGES_PATH.glob('*.png')]
 
-    if not SUBMIT:
-        png_files = [list(sorted(png_files))[0]]
+    #if not SUBMIT:
+     #   png_files = [list(sorted(png_files))[0]]
 
     annotations = load_annotations()
 

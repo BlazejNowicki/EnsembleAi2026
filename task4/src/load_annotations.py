@@ -43,9 +43,9 @@ def load_annotations() -> dict[str, Annotation | None]:
 
                     # Note: If you still need coordinates normalized to [0, 1],
                     # extract width/height from the <image> tag and divide here:
-                    # width, height = float(image.get('width')), float(image.get('height'))
-                    # x1, y1 = x1 / width, y1 / height
-                    # x2, y2 = x2 / width, y2 / height
+                    width, height = float(image.get('width')), float(image.get('height'))
+                    x1, y1 = x1 / width, y1 / height
+                    x2, y2 = x2 / width, y2 / height
 
                     annotations_dict[filename] = ((x1, y1), (x2, y2))
                 else:

@@ -1,33 +1,34 @@
 import numpy as np
-from src.load_annotations import Annotation
 import cv2
+from src.load_annotations import Annotation
 
 def rotate(image: np.ndarray, annotation: Annotation) -> tuple[np.ndarray, Annotation]:
-    edges = cv2.Canny(image, 50, 150, apertureSize=3)
-    lines = cv2.HoughLines(edges, 1, np.pi/180, 200)
     p1, p2 = annotation
 
-    angles = []
+    # Compute angle of the line p1 → p2
+    dx = p2[0] - p1[0]
+    dy = p2[1] - p1[1]
+    angle_line = np.arctan2(dy, dx)  # radians
 
-    for line in lines:
-        rho, theta = line[0]
-        angle = theta - np.pi/2
-        angles.append(angle)
+    # Compute perpendicular angle (the line we want to align with image edge)
+    angle_perp = angle_line + np.pi/2  # 90° in radians
 
-    angle = np.median(angles)
-    angle_deg = np.degrees(angle)
-    (h, w) = image.shape
+    # Convert to degrees
+    angle_deg = np.degrees(angle_perp)
+
+    # Use the same rotation approach as original function
+    h, w = image.shape[:2]
     center = (w // 2, h // 2)
-
-    M = cv2.getRotationMatrix2D(center, angle_deg, 1.0)
+    M = cv2.getRotationMatrix2D(center, angle_deg, -1.0)
 
     rotated = cv2.warpAffine(image, M, (w, h),
-                            flags=cv2.INTER_LINEAR,
-                            borderMode=cv2.BORDER_REPLICATE)
+                             flags=cv2.INTER_LINEAR,
+                             borderMode=cv2.BORDER_REPLICATE)
 
+    # Rotate annotation points
     points = np.array([[p1, p2]], dtype=np.float32)
     points_rot = cv2.transform(points, M)[0]
     p1_rot, p2_rot = points_rot
-    annotation = Annotation((p1_rot, p2_rot))
 
-    return rotated, annotation
+    annotation_rot = Annotation((tuple(p1_rot), tuple(p2_rot)))
+    return rotated, annotation_rot

@@ -10,6 +10,7 @@ from src.crop_line import crop_line_simple
 from src.extract_ink import extract_ink, adaptive_extract_ink
 from src.load_annotations import load_annotations, Annotation
 from src.read_signal import read_signal
+from src.rotate import rotate
 from src.utils import IMAGES_PATH, save_step, DATA_PATH, NPZ_FILE, SUBMIT
 
 DEFAULT_ANNOTATION = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),
@@ -41,12 +42,21 @@ def digitize(filename: str, default: bool, annotation: Annotation | None):
         line2 = crop_line_simple(image, annotation[1][0], annotation[1][1], annotation[4][0])
         line3 = crop_line_simple(image, annotation[2][0], annotation[2][1], annotation[5][0])
     else:
-        # todo: change to real rotation
-        annotation = DEFAULT_ANNOTATION
         annotation = convert_annotation_to_abs(annotation, image.shape[:2])
-        line1 = crop_line_simple(image, annotation[0][0], annotation[0][1], annotation[3][0])
-        line2 = crop_line_simple(image, annotation[1][0], annotation[1][1], annotation[4][0])
-        line3 = crop_line_simple(image, annotation[2][0], annotation[2][1], annotation[5][0])
+        image, annotation = rotate(image, annotation)
+
+        (x1, y1), (x3, y3) = annotation[0], annotation[1]
+
+        x = x1
+        y2 = (y1 + y3) / 2
+
+        y_delta = y3 - y1
+        x_delta = 50 / 14 * y_delta
+        x_end = x + x_delta
+
+        line1 = crop_line_simple(image, x, y1, x_end)
+        line2 = crop_line_simple(image, x, y2, x_end)
+        line3 = crop_line_simple(image, x, y3, x_end)
 
     save_step('2_cropped_1', filename, line1 * 255)
     save_step('2_cropped_2', filename, line2 * 255)

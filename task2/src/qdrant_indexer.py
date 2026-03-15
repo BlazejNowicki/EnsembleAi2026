@@ -29,6 +29,7 @@ def _get_dense_model() -> SentenceTransformer:
     if _dense_model_cache is None:
         cfg = get_config()["embedder"]
         _dense_model_cache = SentenceTransformer(cfg["model"])
+        _dense_model_cache.max_seq_length = cfg.get("max_seq_length", 8192)
     return _dense_model_cache
 
 
@@ -112,25 +113,28 @@ def build_hybrid_index(chunks: list[EnrichedChunk], repo_id: str) -> str:
         print(f"  Qdrant: reusing existing collection '{col_name}'.")
         return col_name
 
-    dense_texts = [c.text_for_embedding for c in chunks]
-    print(f"  Embedding {len(dense_texts)} chunks (dense)...")
-    dense_vecs = _embed_dense(dense_texts, batch_size)
+    window = 500
+    total = len(chunks)
+    print(f"  Indexing {total} chunks in windows of {window}...")
 
-    sparse_texts = [c.text_for_bm25 for c in chunks]
-    print(f"  Embedding {len(sparse_texts)} chunks (sparse BM25)...")
-    sparse_vecs = _embed_sparse(sparse_texts)
+    for w_start in range(0, total, window):
+        w_end = min(w_start + window, total)
+        window_chunks = chunks[w_start:w_end]
 
-    upsert_batch = 128
-    for i in range(0, len(chunks), upsert_batch):
+        dense_texts = [c.text_for_embedding for c in window_chunks]
+        dense_vecs = _embed_dense(dense_texts, batch_size)
+
+        sparse_texts = [c.text_for_bm25 for c in window_chunks]
+        sparse_vecs = _embed_sparse(sparse_texts)
+
         points = []
-        for j, chunk in enumerate(chunks[i : i + upsert_batch]):
-            idx = i + j
+        for j, chunk in enumerate(window_chunks):
             points.append(
                 PointStruct(
-                    id=idx,
+                    id=w_start + j,
                     vector={
-                        "dense": dense_vecs[idx],
-                        "sparse_bm25": sparse_vecs[idx],
+                        "dense": dense_vecs[j],
+                        "sparse_bm25": sparse_vecs[j],
                     },
                     payload={
                         "file_path": chunk.file_path,
@@ -146,6 +150,7 @@ def build_hybrid_index(chunks: list[EnrichedChunk], repo_id: str) -> str:
                 )
             )
         client.upsert(collection_name=col_name, points=points)
+        print(f"    {w_end}/{total} chunks embedded + upserted")
 
-    print(f"  Qdrant: upserted {len(chunks)} points into '{col_name}'.")
+    print(f"  Qdrant: done – {total} points in '{col_name}'.")
     return col_name

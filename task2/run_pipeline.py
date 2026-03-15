@@ -3,11 +3,13 @@ Combined pipeline: index each repo, predict its datapoints.
 
 Models (embedder, reranker) are loaded once and reused across all repos.
 Qdrant collections are built per repo and reused if they already exist.
+Per-repo predictions are cached to disk; on re-run only missing repos are predicted.
 
 Usage:
     poetry run python run_pipeline.py --stage start --lang python
 """
 
+import json
 import os
 import argparse
 from collections import defaultdict
@@ -48,6 +50,29 @@ def predict_one(datapoint: dict, collection_name: str) -> str:
     return context
 
 
+def _prediction_cache_dir(language: str, stage: str) -> str:
+    return os.path.join("predictions", "cache", f"{language}-{stage}")
+
+
+def _repo_cache_path(cache_dir: str, repo_name: str) -> str:
+    return os.path.join(cache_dir, f"{repo_name}.json")
+
+
+def _load_cached_predictions(cache_path: str) -> dict[int, str] | None:
+    """Load cached per-repo predictions. Returns {original_idx: context} or None."""
+    if not os.path.exists(cache_path):
+        return None
+    with open(cache_path) as f:
+        data = json.load(f)
+    return {int(k): v for k, v in data.items()}
+
+
+def _save_cached_predictions(cache_path: str, preds: dict[int, str]) -> None:
+    """Save per-repo predictions to cache."""
+    with open(cache_path, "w") as f:
+        json.dump({str(k): v for k, v in preds.items()}, f)
+
+
 def main():
     parser = argparse.ArgumentParser(description="Index + predict pipeline")
     parser.add_argument("--stage", type=str, default="start")
@@ -82,19 +107,35 @@ def main():
     # prepare output array (predictions must match input order)
     predictions: list[str | None] = [None] * len(datapoints)
 
+    cache_dir = _prediction_cache_dir(language, stage)
+    os.makedirs(cache_dir, exist_ok=True)
+
+    cached_count = 0
     for repo_root, items in tqdm(repo_groups.items(), desc="Repos"):
         repo_name = os.path.basename(repo_root)
+        cache_path = _repo_cache_path(cache_dir, repo_name)
+
+        # --- CHECK CACHE ---
+        cached = _load_cached_predictions(cache_path)
+        if cached is not None:
+            for idx, _ in items:
+                predictions[idx] = cached.get(idx, "")
+            cached_count += 1
+            print(f"\n[{repo_name}] cached ✓")
+            continue
+
         print(f"\n[{repo_name}]")
 
         if not os.path.isdir(repo_root):
             print(f"  SKIP - directory not found: {repo_root}")
+            repo_preds: dict[int, str] = {}
             for idx, _ in items:
                 predictions[idx] = ""
+                repo_preds[idx] = ""
+            _save_cached_predictions(cache_path, repo_preds)
             continue
 
         # --- INDEX ---
-        # Index full repo (don't exclude any file – different datapoints may
-        # complete different files, and the reranker handles relevance).
         chunks = chunk_repository(repo_root, exclude_path=None)
         print_stats(chunks)
 
@@ -104,10 +145,20 @@ def main():
         col_name = build_hybrid_index(enriched, repo_name)
 
         # --- PREDICT all datapoints for this repo ---
+        repo_preds = {}
         for idx, dp in tqdm(items, desc=f"  Predicting ({repo_name})", leave=False):
-            predictions[idx] = predict_one(dp, col_name)
+            ctx = predict_one(dp, col_name)
+            predictions[idx] = ctx
+            repo_preds[idx] = ctx
 
-    # write predictions in original order
+        # --- SAVE per-repo cache ---
+        _save_cached_predictions(cache_path, repo_preds)
+        print(f"  Cached predictions to {cache_path}")
+
+    if cached_count:
+        print(f"\n{cached_count}/{len(repo_groups)} repos loaded from cache")
+
+    # --- AGGREGATE: write predictions in original order ---
     os.makedirs("predictions", exist_ok=True)
     output_path = os.path.join("predictions", f"{language}-{stage}-rag.jsonl")
 

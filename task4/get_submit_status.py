@@ -66,7 +66,19 @@ def main():
     except Exception:
         data = response.text
 
+    sh = data['results'][0]['sh']
+    ti = data['results'][0]['ti']
+    amp = data['results'][0]['amp']
+
     print("response:", response.status_code, data)
+
+    print(f'shape: {sh}')
+    print(f'amplitude: {amp}')
+    print(f'time: {ti}')
+
+    # total = 0.6 * sh + 0.2 * amp + 0.2 * ti
+    total = sh + amp + ti
+    print(f'total: {total}')
 
 
 if __name__ == "__main__":

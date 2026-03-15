@@ -9,7 +9,7 @@ from src.crop_line import crop_line_simple
 from src.extract_ink import extract_ink
 from src.load_annotations import load_annotations, Annotation
 from src.read_signal import read_signal
-from src.utils import IMAGES_PATH, save_step, DATA_PATH, NPZ_FILE
+from src.utils import IMAGES_PATH, save_step, DATA_PATH, NPZ_FILE, SUBMIT
 
 
 def convert_annotation_to_abs(annotation: Annotation, image_shape: tuple[int, int]) -> Annotation:
@@ -46,7 +46,9 @@ def main():
         shutil.rmtree(DATA_PATH / 'steps')
 
     png_files = [p.name for p in IMAGES_PATH.glob('*.png')]
-    # png_files = [list(sorted(png_files))[0]]
+
+    if not SUBMIT:
+        png_files = [list(sorted(png_files))[0]]
 
     annotations = load_annotations()
 
@@ -64,8 +66,9 @@ def main():
         sub_dict = digitize(file, annotation)
         final_dict |= sub_dict
 
-    os.makedirs(os.path.dirname(NPZ_FILE), exist_ok=True)
-    np.savez_compressed(NPZ_FILE, **final_dict, )
+    if SUBMIT:
+        os.makedirs(os.path.dirname(NPZ_FILE), exist_ok=True)
+        np.savez_compressed(NPZ_FILE, **final_dict, )
 
     print(len(final_dict))
     # print(final_dict.keys())

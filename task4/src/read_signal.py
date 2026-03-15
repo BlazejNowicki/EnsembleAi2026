@@ -1,7 +1,9 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-from src.utils import save_step
+from src.utils import save_step, SUBMIT
+
+WIDTH_MM = 62.5
 
 
 def read_slice_signal(slice: np.ndarray, hmm: float) -> float | None:
@@ -15,13 +17,14 @@ def read_slice_signal(slice: np.ndarray, hmm: float) -> float | None:
     median = np.median(one_indices)
 
     value = 1.0 - (median / slice_size) - 0.5
-    value *= hmm
+    value *= hmm / 10
     return value
 
 
 def read_lead_signal(image: np.ndarray) -> np.ndarray:
     values = []
-    hmm = image.shape[1] / image.shape[0] * 65 / 2.0
+
+    hmm = image.shape[0] / image.shape[1] * WIDTH_MM
     for x in range(image.shape[1]):
         slice = image[:, x]
         value = read_slice_signal(slice, hmm=hmm)
@@ -32,12 +35,33 @@ def read_lead_signal(image: np.ndarray) -> np.ndarray:
 
     values = np.array(values)
 
+    # remove nans
+    valid_mask = ~np.isnan(values)
+    old_x = np.linspace(0, 1, len(values))
+    new_x = np.linspace(0, 1, 1250)
+    values = np.interp(new_x, old_x[valid_mask], values[valid_mask])
+
     # interpolate to 1250 values
+    # print(values)
+    # print(np.isnan(values).sum())
     old_x = np.linspace(0, 1, len(values))
     new_x = np.linspace(0, 1, 1250)
     values = np.interp(new_x, old_x, values)
 
     return values
+
+
+def remove_text(image: np.ndarray) -> np.ndarray:
+    h, w = image.shape[:2]
+
+    vertical_gap_mm = 12
+    vertical_gap = int(vertical_gap_mm * w / WIDTH_MM)
+
+    horizontal_gap = int(0.125 * w)
+
+    image[int(0.5 * h) + vertical_gap:, :horizontal_gap] = 1
+
+    return image
 
 
 def read_line_signal(image: np.ndarray):
@@ -54,6 +78,11 @@ def read_line_signal(image: np.ndarray):
     image3 = image[:, w_step * 2:w_step * 3]
     image4 = image[:, w_step * 3:]  # Grabs the remainder up to the end
 
+    image1 = remove_text(image1)
+    image2 = remove_text(image2)
+    image3 = remove_text(image3)
+    image4 = remove_text(image4)
+
     save_step("3_lead_1", "line1.png", image1 * 255)
     save_step("3_lead_2", "line1.png", image2 * 255)
     save_step("3_lead_3", "line1.png", image3 * 255)
@@ -64,9 +93,14 @@ def read_line_signal(image: np.ndarray):
     s3 = read_lead_signal(image3)
     s4 = read_lead_signal(image4)
 
-    # plt.plot(s1)
-    # plt.savefig("data1/s1.png", dpi=300, bbox_inches="tight")
-    # plt.close()
+    if not SUBMIT:
+        plt.plot(s4)
+        plt.savefig("data1/s4.png", dpi=300, bbox_inches="tight")
+        plt.close()
+
+        plt.plot(s1)
+        plt.savefig("data1/s1.png", dpi=300, bbox_inches="tight")
+        plt.close()
 
     return s1, s2, s3, s4
 

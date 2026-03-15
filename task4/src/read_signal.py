@@ -22,6 +22,12 @@ def read_slice_signal(slice: np.ndarray, hmm: float) -> float | None:
 
 
 def read_lead_signal(image: np.ndarray) -> np.ndarray:
+    # cut beginning and ending
+    # beginning_cut = int(0.008 * image.shape[1])
+    # end_cut = int(0.008 * image.shape[1])
+    # print(beginning_cut, end_cut)
+    # image = image[:, beginning_cut:image.shape[1] - end_cut]
+
     values = []
 
     hmm = image.shape[0] / image.shape[1] * WIDTH_MM
@@ -73,7 +79,7 @@ def remove_text(image: np.ndarray) -> np.ndarray:
     return image
 
 
-def read_line_signal(image: np.ndarray):
+def read_line_signal(image: np.ndarray, filename: str):
     # Get the height and width of the image
     height, width = image.shape[:2]
 
@@ -92,10 +98,10 @@ def read_line_signal(image: np.ndarray):
     image3 = remove_text(image3)
     image4 = remove_text(image4)
 
-    save_step("3_lead_1", "line1.png", image1 * 255)
-    save_step("3_lead_2", "line1.png", image2 * 255)
-    save_step("3_lead_3", "line1.png", image3 * 255)
-    save_step("3_lead_4", "line1.png", image4 * 255)
+    save_step("3_lead_1", filename, image1 * 255)
+    save_step("3_lead_2", filename, image2 * 255)
+    save_step("3_lead_3", filename, image3 * 255)
+    save_step("3_lead_4", filename, image4 * 255)
 
     s1 = read_lead_signal(image1)
     s2 = read_lead_signal(image2)
@@ -116,9 +122,9 @@ def read_line_signal(image: np.ndarray):
 
 def read_signal(line1: np.ndarray, line2: np.ndarray, line3: np.ndarray, filename: str) -> dict[str, np.ndarray]:
     # ['I', 'II', 'III', 'AVR', 'AVL', 'AVF', 'V1', 'V2', 'V3', 'V4', 'V5', 'V6']
-    I, AVR, V1, V4 = read_line_signal(line1)
-    II, AVL, V2, V5 = read_line_signal(line2)
-    III, AVF, V3, V6 = read_line_signal(line3)
+    I, AVR, V1, V4 = read_line_signal(line1, filename)
+    II, AVL, V2, V5 = read_line_signal(line2, filename)
+    III, AVF, V3, V6 = read_line_signal(line3, filename)
 
     sub_dict = {
         'I': I,

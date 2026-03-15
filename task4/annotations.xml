@@ -1,0 +1,1201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>765</id>
+      <name>images2</name>
+      <size>390</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2026-03-15 04:12:10.315029+00:00</created>
+      <updated>2026-03-15 04:49:13.764430+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>389</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>763</id>
+          <start>0</start>
+          <stop>389</stop>
+          <url>http://localhost:8080/api/jobs/763</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>szymong</username>
+        <email>abcdef@gmail.com</email>
+      </owner>
+      <assignee></assignee>
+      <labels>
+        <label>
+          <name>rect</name>
+          <color>#00ff49</color>
+          <type>polyline</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </task>
+    <dumped>2026-03-15 04:49:22.614105+00:00</dumped>
+  </meta>
+  <image id="0" name="ecg_test_0003.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.38,297.31;49.60,535.06" z_order="0">
+    </polyline>
+  </image>
+  <image id="1" name="ecg_test_0004.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.60,298.87;50.39,537.79" z_order="0">
+    </polyline>
+  </image>
+  <image id="2" name="ecg_test_0005.png" width="1958" height="1513">
+    <polyline label="rect" source="manual" occluded="0" points="48.01,688.32;85.24,1223.56" z_order="0">
+    </polyline>
+  </image>
+  <image id="3" name="ecg_test_0006.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="114.32,724.64;123.61,1290.71" z_order="0">
+    </polyline>
+  </image>
+  <image id="4" name="ecg_test_0007.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.38,296.53;49.99,535.84" z_order="0">
+    </polyline>
+  </image>
+  <image id="5" name="ecg_test_0009.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="22.42,264.77;4.15,520.55" z_order="0">
+    </polyline>
+  </image>
+  <image id="6" name="ecg_test_0011.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="84.56,701.71;85.67,1291.77" z_order="0">
+    </polyline>
+  </image>
+  <image id="7" name="ecg_test_0012.png" width="2013" height="1555">
+    <polyline label="rect" source="manual" occluded="0" points="77.63,541.86;19.48,1093.83" z_order="0">
+    </polyline>
+  </image>
+  <image id="8" name="ecg_test_0013.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.30,297.28;49.83,535.73" z_order="0">
+    </polyline>
+  </image>
+  <image id="9" name="ecg_test_0016.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="116.34,653.19;89.57,1229.86" z_order="0">
+    </polyline>
+  </image>
+  <image id="10" name="ecg_test_0017.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="120.81,623.08;70.61,1193.06" z_order="0">
+    </polyline>
+  </image>
+  <image id="11" name="ecg_test_0018.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="111.88,652.08;80.65,1230.98" z_order="0">
+    </polyline>
+  </image>
+  <image id="12" name="ecg_test_0020.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="110.77,705.62;110.77,1280.06" z_order="0">
+    </polyline>
+  </image>
+  <image id="13" name="ecg_test_0021.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="124.17,619.51;73.98,1193.02" z_order="0">
+    </polyline>
+  </image>
+  <image id="14" name="ecg_test_0022.png" width="2013" height="1555">
+    <polyline label="rect" source="manual" occluded="0" points="48.66,793.56;135.38,1338.39" z_order="0">
+    </polyline>
+  </image>
+  <image id="15" name="ecg_test_0023.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="96.94,792.29;147.13,1366.73" z_order="0">
+    </polyline>
+  </image>
+  <image id="16" name="ecg_test_0024.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="99.17,792.29;148.25,1363.38" z_order="0">
+    </polyline>
+  </image>
+  <image id="17" name="ecg_test_0025.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.60,296.67;50.06,535.59" z_order="0">
+    </polyline>
+  </image>
+  <image id="18" name="ecg_test_0027.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="98.05,739.86;119.24,1318.76" z_order="0">
+    </polyline>
+  </image>
+  <image id="19" name="ecg_test_0028.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="95.82,704.17;95.82,1285.30" z_order="0">
+    </polyline>
+  </image>
+  <image id="20" name="ecg_test_0029.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.53,297.61;50.06,536.06" z_order="0">
+    </polyline>
+  </image>
+  <image id="21" name="ecg_test_0032.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.06,296.20;50.53,536.06" z_order="0">
+    </polyline>
+  </image>
+  <image id="22" name="ecg_test_0033.png" width="825" height="637">
+    <polyline label="rect" source="manual" occluded="0" points="57.52,174.34;3.60,387.91" z_order="0">
+    </polyline>
+  </image>
+  <image id="23" name="ecg_test_0034.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="119.80,636.46;80.76,1212.02" z_order="0">
+    </polyline>
+  </image>
+  <image id="24" name="ecg_test_0035.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="97.49,648.73;67.38,1236.56" z_order="0">
+    </polyline>
+  </image>
+  <image id="25" name="ecg_test_0038.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.07,296.37;50.07,536.08" z_order="0">
+    </polyline>
+  </image>
+  <image id="26" name="ecg_test_0039.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="81.04,774.09;121.01,1357.82" z_order="0">
+    </polyline>
+  </image>
+  <image id="27" name="ecg_test_0041.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="75.46,755.50;106.14,1344.81" z_order="0">
+    </polyline>
+  </image>
+  <image id="28" name="ecg_test_0042.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="93.12,740.62;112.65,1318.78" z_order="0">
+    </polyline>
+  </image>
+  <image id="29" name="ecg_test_0043.png" width="880" height="680">
+    <polyline label="rect" source="manual" occluded="0" points="43.58,283.62;43.58,513.02" z_order="0">
+    </polyline>
+  </image>
+  <image id="30" name="ecg_test_0044.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.68,297.39;50.46,535.53" z_order="0">
+    </polyline>
+  </image>
+  <image id="31" name="ecg_test_0046.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.07,298.56;50.07,537.09" z_order="0">
+    </polyline>
+  </image>
+  <image id="32" name="ecg_test_0047.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="109.86,633.73;68.96,1216.53" z_order="0">
+    </polyline>
+  </image>
+  <image id="33" name="ecg_test_0048.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.07,297.00;50.07,535.14" z_order="0">
+    </polyline>
+  </image>
+  <image id="34" name="ecg_test_0049.png" width="1837" height="1419">
+    <polyline label="rect" source="manual" occluded="0" points="40.46,677.53;90.89,1177.97" z_order="0">
+    </polyline>
+  </image>
+  <image id="35" name="ecg_test_0051.png" width="869" height="671">
+    <polyline label="rect" source="manual" occluded="0" points="32.92,175.16;0.00,301.17" z_order="0">
+    </polyline>
+  </image>
+  <image id="36" name="ecg_test_0053.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="76.41,763.73;108.54,1345.98" z_order="0">
+    </polyline>
+  </image>
+  <image id="37" name="ecg_test_0054.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="95.15,763.73;125.94,1336.61" z_order="0">
+    </polyline>
+  </image>
+  <image id="38" name="ecg_test_0055.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,296.04;50.09,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="39" name="ecg_test_0057.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="93.81,790.50;144.68,1368.73" z_order="0">
+    </polyline>
+  </image>
+  <image id="40" name="ecg_test_0059.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="101.84,774.44;143.34,1354.01" z_order="0">
+    </polyline>
+  </image>
+  <image id="41" name="ecg_test_0060.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="101.84,635.24;63.03,1214.81" z_order="0">
+    </polyline>
+  </image>
+  <image id="42" name="ecg_test_0061.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="109.88,676.73;91.14,1248.27" z_order="0">
+    </polyline>
+  </image>
+  <image id="43" name="ecg_test_0064.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,298.29;50.66,536.09" z_order="0">
+    </polyline>
+  </image>
+  <image id="44" name="ecg_test_0065.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="83.11,699.48;84.44,1292.44" z_order="0">
+    </polyline>
+  </image>
+  <image id="45" name="ecg_test_0066.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="91.14,688.78;81.77,1276.38" z_order="0">
+    </polyline>
+  </image>
+  <image id="46" name="ecg_test_0067.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,298.29;50.66,537.77" z_order="0">
+    </polyline>
+  </image>
+  <image id="47" name="ecg_test_0068.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="93.81,758.38;125.94,1340.62" z_order="0">
+    </polyline>
+  </image>
+  <image id="48" name="ecg_test_0069.png" width="2178" height="1683">
+    <polyline label="rect" source="manual" occluded="0" points="38.62,676.00;28.02,1289.53" z_order="0">
+    </polyline>
+  </image>
+  <image id="49" name="ecg_test_0070.png" width="1265" height="977">
+    <polyline label="rect" source="manual" occluded="0" points="64.69,334.69;24.69,671.62" z_order="0">
+    </polyline>
+  </image>
+  <image id="50" name="ecg_test_0071.png" width="2068" height="1598">
+    <polyline label="rect" source="manual" occluded="0" points="109.61,531.73;31.60,1081.56" z_order="0">
+    </polyline>
+  </image>
+  <image id="51" name="ecg_test_0072.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.66,297.73;50.09,538.90" z_order="0">
+    </polyline>
+  </image>
+  <image id="52" name="ecg_test_0073.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,298.29;49.53,538.90" z_order="0">
+    </polyline>
+  </image>
+  <image id="53" name="ecg_test_0075.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,297.17;50.66,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="54" name="ecg_test_0076.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.97,296.60;50.09,537.77" z_order="0">
+    </polyline>
+  </image>
+  <image id="55" name="ecg_test_0079.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="104.52,797.19;156.72,1368.73" z_order="0">
+    </polyline>
+  </image>
+  <image id="56" name="ecg_test_0080.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="97.83,742.32;117.91,1323.22" z_order="0">
+    </polyline>
+  </image>
+  <image id="57" name="ecg_test_0081.png" width="1980" height="1530">
+    <polyline label="rect" source="manual" occluded="0" points="119.39,563.30;74.82,1072.87" z_order="0">
+    </polyline>
+  </image>
+  <image id="58" name="ecg_test_0082.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="101.84,762.39;131.29,1333.93" z_order="0">
+    </polyline>
+  </image>
+  <image id="59" name="ecg_test_0083.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="96.49,726.25;108.54,1305.82" z_order="0">
+    </polyline>
+  </image>
+  <image id="60" name="ecg_test_0084.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,297.17;50.09,537.21" z_order="0">
+    </polyline>
+  </image>
+  <image id="61" name="ecg_test_0086.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="117.91,656.65;89.80,1225.51" z_order="0">
+    </polyline>
+  </image>
+  <image id="62" name="ecg_test_0088.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,297.73;49.53,537.77" z_order="0">
+    </polyline>
+  </image>
+  <image id="63" name="ecg_test_0089.png" width="561" height="433">
+    <polyline label="rect" source="manual" occluded="0" points="28.15,199.12;38.38,342.31" z_order="0">
+    </polyline>
+  </image>
+  <image id="64" name="ecg_test_0090.png" width="2167" height="1674">
+    <polyline label="rect" source="manual" occluded="0" points="159.27,476.65;19.56,1121.17" z_order="0">
+    </polyline>
+  </image>
+  <image id="65" name="ecg_test_0092.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="104.52,743.65;124.60,1319.21" z_order="0">
+    </polyline>
+  </image>
+  <image id="66" name="ecg_test_0093.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.41,407.35;110.24,638.97" z_order="0">
+    </polyline>
+  </image>
+  <image id="67" name="ecg_test_0094.png" width="1837" height="1419">
+    <polyline label="rect" source="manual" occluded="0" points="40.10,677.16;92.61,1183.27" z_order="0">
+    </polyline>
+  </image>
+  <image id="68" name="ecg_test_0095.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="85.78,723.58;95.15,1309.84" z_order="0">
+    </polyline>
+  </image>
+  <image id="69" name="ecg_test_0098.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="133.97,625.87;84.44,1190.71" z_order="0">
+    </polyline>
+  </image>
+  <image id="70" name="ecg_test_0099.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="85.78,793.18;137.98,1372.75" z_order="0">
+    </polyline>
+  </image>
+  <image id="71" name="ecg_test_0100.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.97,298.85;50.09,535.53" z_order="0">
+    </polyline>
+  </image>
+  <image id="72" name="ecg_test_0101.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="128.61,624.53;76.41,1196.07" z_order="0">
+    </polyline>
+  </image>
+  <image id="73" name="ecg_test_0102.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.66,298.29;50.09,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="74" name="ecg_test_0103.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,299.42;50.09,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="75" name="ecg_test_0104.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="88.46,742.32;108.54,1328.58" z_order="0">
+    </polyline>
+  </image>
+  <image id="76" name="ecg_test_0105.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.97,298.29;49.53,537.21" z_order="0">
+    </polyline>
+  </image>
+  <image id="77" name="ecg_test_0106.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,298.85;49.53,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="78" name="ecg_test_0107.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,296.04;50.66,536.09" z_order="0">
+    </polyline>
+  </image>
+  <image id="79" name="ecg_test_0108.png" width="1474" height="1139">
+    <polyline label="rect" source="manual" occluded="0" points="49.46,361.54;2.83,799.18" z_order="0">
+    </polyline>
+  </image>
+  <image id="80" name="ecg_test_0109.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="79.09,742.32;100.51,1329.92" z_order="0">
+    </polyline>
+  </image>
+  <image id="81" name="ecg_test_0110.png" width="1980" height="1530">
+    <polyline label="rect" source="manual" occluded="0" points="118.19,564.51;74.82,1078.89" z_order="0">
+    </polyline>
+  </image>
+  <image id="82" name="ecg_test_0111.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="87.12,761.05;117.91,1341.96" z_order="0">
+    </polyline>
+  </image>
+  <image id="83" name="ecg_test_0112.png" width="1243" height="960">
+    <polyline label="rect" source="manual" occluded="0" points="6.12,469.83;43.91,822.06" z_order="0">
+    </polyline>
+  </image>
+  <image id="84" name="ecg_test_0113.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,299.42;50.09,539.46" z_order="0">
+    </polyline>
+  </image>
+  <image id="85" name="ecg_test_0115.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="99.17,671.38;79.09,1254.96" z_order="0">
+    </polyline>
+  </image>
+  <image id="86" name="ecg_test_0116.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="93.81,656.65;63.03,1238.90" z_order="0">
+    </polyline>
+  </image>
+  <image id="87" name="ecg_test_0117.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="76.41,761.05;105.86,1348.66" z_order="0">
+    </polyline>
+  </image>
+  <image id="88" name="ecg_test_0118.png" width="583" height="450">
+    <polyline label="rect" source="manual" occluded="0" points="27.82,177.72;22.15,331.85" z_order="0">
+    </polyline>
+  </image>
+  <image id="89" name="ecg_test_0120.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="123.26,624.53;75.07,1194.73" z_order="0">
+    </polyline>
+  </image>
+  <image id="90" name="ecg_test_0121.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,298.29;50.66,536.09" z_order="0">
+    </polyline>
+  </image>
+  <image id="91" name="ecg_test_0122.png" width="1331" height="1028">
+    <polyline label="rect" source="manual" occluded="0" points="4.10,499.04;52.66,877.84" z_order="0">
+    </polyline>
+  </image>
+  <image id="92" name="ecg_test_0123.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="91.14,668.70;71.06,1257.64" z_order="0">
+    </polyline>
+  </image>
+  <image id="93" name="ecg_test_0124.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="83.11,687.44;75.07,1277.71" z_order="0">
+    </polyline>
+  </image>
+  <image id="94" name="ecg_test_0125.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="84.44,687.44;73.74,1276.38" z_order="0">
+    </polyline>
+  </image>
+  <image id="95" name="ecg_test_0126.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,298.85;49.53,537.77" z_order="0">
+    </polyline>
+  </image>
+  <image id="96" name="ecg_test_0127.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="97.83,655.31;68.38,1244.25" z_order="0">
+    </polyline>
+  </image>
+  <image id="97" name="ecg_test_0128.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,298.29;50.09,538.90" z_order="0">
+    </polyline>
+  </image>
+  <image id="98" name="ecg_test_0129.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="104.52,726.25;113.89,1300.47" z_order="0">
+    </polyline>
+  </image>
+  <image id="99" name="ecg_test_0130.png" width="2002" height="1547">
+    <polyline label="rect" source="manual" occluded="0" points="28.13,603.04;7.42,1171.86" z_order="0">
+    </polyline>
+  </image>
+  <image id="100" name="ecg_test_0136.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.66,298.29;50.66,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="101" name="ecg_test_0137.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.97,297.17;50.09,536.65" z_order="0">
+    </polyline>
+  </image>
+  <image id="102" name="ecg_test_0138.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="83.11,720.90;91.14,1311.18" z_order="0">
+    </polyline>
+  </image>
+  <image id="103" name="ecg_test_0139.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="77.75,777.12;116.57,1364.72" z_order="0">
+    </polyline>
+  </image>
+  <image id="104" name="ecg_test_0140.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="117.91,672.71;96.49,1249.61" z_order="0">
+    </polyline>
+  </image>
+  <image id="105" name="ecg_test_0141.png" width="572" height="442">
+    <polyline label="rect" source="manual" occluded="0" points="19.19,222.25;39.72,372.59" z_order="0">
+    </polyline>
+  </image>
+  <image id="106" name="ecg_test_0142.png" width="2079" height="1606">
+    <polyline label="rect" source="manual" occluded="0" points="79.55,816.37;165.53,1360.10" z_order="0">
+    </polyline>
+  </image>
+  <image id="107" name="ecg_test_0145.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.53,297.73;49.53,537.77" z_order="0">
+    </polyline>
+  </image>
+  <image id="108" name="ecg_test_0146.png" width="1925" height="1487">
+    <polyline label="rect" source="manual" occluded="0" points="102.98,619.42;105.33,1121.69" z_order="0">
+    </polyline>
+  </image>
+  <image id="109" name="ecg_test_0147.png" width="1672" height="1292">
+    <polyline label="rect" source="manual" occluded="0" points="7.22,675.05;89.62,1142.99" z_order="0">
+    </polyline>
+  </image>
+  <image id="110" name="ecg_test_0148.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="112.55,620.51;61.69,1201.42" z_order="0">
+    </polyline>
+  </image>
+  <image id="111" name="ecg_test_0149.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="108.54,724.92;119.24,1299.13" z_order="0">
+    </polyline>
+  </image>
+  <image id="112" name="ecg_test_0150.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.09,299.42;50.09,537.21" z_order="0">
+    </polyline>
+  </image>
+  <image id="113" name="ecg_test_0152.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="92.47,794.52;147.35,1371.41" z_order="0">
+    </polyline>
+  </image>
+  <image id="114" name="ecg_test_0153.png" width="2035" height="1572">
+    <polyline label="rect" source="manual" occluded="0" points="44.46,750.82;103.87,1310.27" z_order="0">
+    </polyline>
+  </image>
+  <image id="115" name="ecg_test_0154.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="85.78,668.70;68.38,1254.96" z_order="0">
+    </polyline>
+  </image>
+  <image id="116" name="ecg_test_0155.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="115.23,674.05;93.81,1250.94" z_order="0">
+    </polyline>
+  </image>
+  <image id="117" name="ecg_test_0156.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.41,297.17;50.66,539.46" z_order="0">
+    </polyline>
+  </image>
+  <image id="118" name="ecg_test_0157.png" width="1804" height="1394">
+    <polyline label="rect" source="manual" occluded="0" points="71.02,365.78;1.48,928.44" z_order="0">
+    </polyline>
+  </image>
+  <image id="119" name="ecg_test_0158.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="115.09,617.70;62.89,1201.29" z_order="0">
+    </polyline>
+  </image>
+  <image id="120" name="ecg_test_0159.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="80.29,762.26;108.40,1352.54" z_order="0">
+    </polyline>
+  </image>
+  <image id="121" name="ecg_test_0160.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="47.79,406.17;110.75,638.35" z_order="0">
+    </polyline>
+  </image>
+  <image id="122" name="ecg_test_0161.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="93.68,776.98;132.50,1356.55" z_order="0">
+    </polyline>
+  </image>
+  <image id="123" name="ecg_test_0162.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="132.50,625.73;85.65,1189.24" z_order="0">
+    </polyline>
+  </image>
+  <image id="124" name="ecg_test_0163.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="89.66,688.64;81.63,1277.58" z_order="0">
+    </polyline>
+  </image>
+  <image id="125" name="ecg_test_0164.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="116.43,707.38;116.43,1281.60" z_order="0">
+    </polyline>
+  </image>
+  <image id="126" name="ecg_test_0165.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="119.11,655.18;89.66,1232.07" z_order="0">
+    </polyline>
+  </image>
+  <image id="127" name="ecg_test_0167.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,297.67;50.04,535.47" z_order="0">
+    </polyline>
+  </image>
+  <image id="128" name="ecg_test_0168.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="97.69,689.98;85.65,1273.57" z_order="0">
+    </polyline>
+  </image>
+  <image id="129" name="ecg_test_0169.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="109.74,675.26;91.00,1253.49" z_order="0">
+    </polyline>
+  </image>
+  <image id="130" name="ecg_test_0170.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="132.50,623.06;81.63,1201.29" z_order="0">
+    </polyline>
+  </image>
+  <image id="131" name="ecg_test_0171.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="101.71,734.15;112.42,1305.69" z_order="0">
+    </polyline>
+  </image>
+  <image id="132" name="ecg_test_0173.png" width="2013" height="1555">
+    <polyline label="rect" source="manual" occluded="0" points="77.98,543.59;19.21,1093.32" z_order="0">
+    </polyline>
+  </image>
+  <image id="133" name="ecg_test_0174.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="100.37,671.24;81.63,1254.83" z_order="0">
+    </polyline>
+  </image>
+  <image id="134" name="ecg_test_0175.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="97.69,636.44;58.88,1224.04" z_order="0">
+    </polyline>
+  </image>
+  <image id="135" name="ecg_test_0177.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="84.31,706.04;82.97,1299.00" z_order="0">
+    </polyline>
+  </image>
+  <image id="136" name="ecg_test_0178.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.60,299.92;50.04,536.59" z_order="0">
+    </polyline>
+  </image>
+  <image id="137" name="ecg_test_0179.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,298.80;50.60,538.84" z_order="0">
+    </polyline>
+  </image>
+  <image id="138" name="ecg_test_0180.png" width="2123" height="1640">
+    <polyline label="rect" source="manual" occluded="0" points="40.95,641.12;17.70,1245.43" z_order="0">
+    </polyline>
+  </image>
+  <image id="139" name="ecg_test_0181.png" width="1375" height="1062">
+    <polyline label="rect" source="manual" occluded="0" points="33.33,557.27;98.55,925.18" z_order="0">
+    </polyline>
+  </image>
+  <image id="140" name="ecg_test_0182.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.60,298.23;49.47,536.03" z_order="0">
+    </polyline>
+  </image>
+  <image id="141" name="ecg_test_0183.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="100.37,636.44;58.88,1221.36" z_order="0">
+    </polyline>
+  </image>
+  <image id="142" name="ecg_test_0184.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="112.42,730.13;121.79,1296.32" z_order="0">
+    </polyline>
+  </image>
+  <image id="143" name="ecg_test_0186.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="48.91,297.67;49.47,537.16" z_order="0">
+    </polyline>
+  </image>
+  <image id="144" name="ecg_test_0188.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="89.66,723.44;99.03,1305.69" z_order="0">
+    </polyline>
+  </image>
+  <image id="145" name="ecg_test_0189.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="103.05,672.58;82.97,1252.15" z_order="0">
+    </polyline>
+  </image>
+  <image id="146" name="ecg_test_0191.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="89.66,797.06;140.53,1372.61" z_order="0">
+    </polyline>
+  </image>
+  <image id="147" name="ecg_test_0192.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.60,297.67;49.47,537.16" z_order="0">
+    </polyline>
+  </image>
+  <image id="148" name="ecg_test_0193.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,298.80;50.60,536.59" z_order="0">
+    </polyline>
+  </image>
+  <image id="149" name="ecg_test_0194.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,298.23;50.60,537.16" z_order="0">
+    </polyline>
+  </image>
+  <image id="150" name="ecg_test_0195.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="91.00,763.60;120.45,1339.15" z_order="0">
+    </polyline>
+  </image>
+  <image id="151" name="ecg_test_0196.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="109.74,681.95;88.33,1254.83" z_order="0">
+    </polyline>
+  </image>
+  <image id="152" name="ecg_test_0198.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="108.40,673.92;88.33,1253.49" z_order="0">
+    </polyline>
+  </image>
+  <image id="153" name="ecg_test_0199.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.47,297.67;50.60,538.28" z_order="0">
+    </polyline>
+  </image>
+  <image id="154" name="ecg_test_0200.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="100.37,727.46;109.74,1303.01" z_order="0">
+    </polyline>
+  </image>
+  <image id="155" name="ecg_test_0201.png" width="1375" height="1062">
+    <polyline label="rect" source="manual" occluded="0" points="38.34,318.96;4.90,720.32" z_order="0">
+    </polyline>
+  </image>
+  <image id="156" name="ecg_test_0203.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="109.74,624.39;58.88,1201.29" z_order="0">
+    </polyline>
+  </image>
+  <image id="157" name="ecg_test_0204.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,299.92;49.47,535.47" z_order="0">
+    </polyline>
+  </image>
+  <image id="158" name="ecg_test_0205.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.60,297.67;50.04,537.16" z_order="0">
+    </polyline>
+  </image>
+  <image id="159" name="ecg_test_0206.png" width="627" height="484">
+    <polyline label="rect" source="manual" occluded="0" points="36.71,127.10;11.17,331.74" z_order="0">
+    </polyline>
+  </image>
+  <image id="160" name="ecg_test_0207.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,296.55;50.04,537.72" z_order="0">
+    </polyline>
+  </image>
+  <image id="161" name="ecg_test_0208.png" width="2123" height="1640">
+    <polyline label="rect" source="manual" occluded="0" points="59.02,646.29;37.07,1218.32" z_order="0">
+    </polyline>
+  </image>
+  <image id="162" name="ecg_test_0209.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="88.33,648.49;60.22,1238.76" z_order="0">
+    </polyline>
+  </image>
+  <image id="163" name="ecg_test_0210.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="72.26,795.72;125.80,1381.98" z_order="0">
+    </polyline>
+  </image>
+  <image id="164" name="ecg_test_0211.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="82.97,688.64;72.26,1276.24" z_order="0">
+    </polyline>
+  </image>
+  <image id="165" name="ecg_test_0212.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,296.55;50.04,537.16" z_order="0">
+    </polyline>
+  </image>
+  <image id="166" name="ecg_test_0213.png" width="1320" height="1020">
+    <polyline label="rect" source="manual" occluded="0" points="61.85,352.97;18.48,700.72" z_order="0">
+    </polyline>
+  </image>
+  <image id="167" name="ecg_test_0214.png" width="1232" height="952">
+    <polyline label="rect" source="manual" occluded="0" points="55.41,384.92;49.42,710.23" z_order="0">
+    </polyline>
+  </image>
+  <image id="168" name="ecg_test_0216.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="116.43,727.46;123.13,1297.66" z_order="0">
+    </polyline>
+  </image>
+  <image id="169" name="ecg_test_0217.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="115.09,710.06;116.43,1282.93" z_order="0">
+    </polyline>
+  </image>
+  <image id="170" name="ecg_test_0219.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,298.23;50.60,536.03" z_order="0">
+    </polyline>
+  </image>
+  <image id="171" name="ecg_test_0220.png" width="1408" height="1088">
+    <polyline label="rect" source="manual" occluded="0" points="49.63,567.47;115.59,934.11" z_order="0">
+    </polyline>
+  </image>
+  <image id="172" name="ecg_test_0221.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="100.37,759.58;131.16,1336.47" z_order="0">
+    </polyline>
+  </image>
+  <image id="173" name="ecg_test_0222.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="117.77,623.06;65.57,1199.95" z_order="0">
+    </polyline>
+  </image>
+  <image id="174" name="ecg_test_0224.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,298.23;49.47,535.47" z_order="0">
+    </polyline>
+  </image>
+  <image id="175" name="ecg_test_0225.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.04,296.55;50.04,537.16" z_order="0">
+    </polyline>
+  </image>
+  <image id="176" name="ecg_test_0226.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="132.50,621.72;80.29,1187.90" z_order="0">
+    </polyline>
+  </image>
+  <image id="177" name="ecg_test_0227.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="129.82,621.72;80.29,1193.26" z_order="0">
+    </polyline>
+  </image>
+  <image id="178" name="ecg_test_0228.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="116.43,692.66;107.06,1273.57" z_order="0">
+    </polyline>
+  </image>
+  <image id="179" name="ecg_test_0229.png" width="2068" height="1598">
+    <polyline label="rect" source="manual" occluded="0" points="31.17,917.53;181.87,1484.07" z_order="0">
+    </polyline>
+  </image>
+  <image id="180" name="ecg_test_0230.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.43,297.34;50.43,536.41" z_order="0">
+    </polyline>
+  </image>
+  <image id="181" name="ecg_test_0231.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="50.43,297.34;49.89,535.32" z_order="0">
+    </polyline>
+  </image>
+  <image id="182" name="ecg_test_0232.png" width="924" height="714">
+    <polyline label="rect" source="manual" occluded="0" points="49.89,297.88;50.43,534.78" z_order="0">
+    </polyline>
+  </image>
+  <image id="183" name="ecg_test_0234.png" width="748" height="578">
+    <polyline label="rect" source="manual" occluded="0" points="33.35,295.85;63.13,489.38" z_order="0">
+    </polyline>
+  </image>
+  <image id="184" name="ecg_test_0236.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="114.87,620.33;59.49,1203.71" z_order="0">
+    </polyline>
+  </image>
+  <image id="185" name="ecg_test_0238.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="103.28,689.87;92.97,1270.67" z_order="0">
+    </polyline>
+  </image>
+  <image id="186" name="ecg_test_0241.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="118.73,709.19;118.73,1279.69" z_order="0">
+    </polyline>
+  </image>
+  <image id="187" name="ecg_test_0243.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="96.84,651.24;64.64,1238.48" z_order="0">
+    </polyline>
+  </image>
+  <image id="188" name="ecg_test_0245.png" width="2200" height="1700">
+    <polyline label="rect" source="manual" occluded="0" points="130.32,624.19;78.81,1203.71" z_order="0">
+    </polyline>
+  </image>
+  <image id="189" name="ecg_test_0246.png" width="2200" height="1700">
+  </image>
+  <image id="190" name="ecg_test_0247.png" width="924" height="714">
+  </image>
+  <image id="191" name="ecg_test_0248.png" width="924" height="714">
+  </image>
+  <image id="192" name="ecg_test_0249.png" width="924" height="714">
+  </image>
+  <image id="193" name="ecg_test_0250.png" width="1089" height="841">
+  </image>
+  <image id="194" name="ecg_test_0252.png" width="1606" height="1241">
+  </image>
+  <image id="195" name="ecg_test_0254.png" width="924" height="714">
+  </image>
+  <image id="196" name="ecg_test_0255.png" width="2200" height="1700">
+  </image>
+  <image id="197" name="ecg_test_0256.png" width="924" height="714">
+  </image>
+  <image id="198" name="ecg_test_0257.png" width="2200" height="1700">
+  </image>
+  <image id="199" name="ecg_test_0258.png" width="2200" height="1700">
+  </image>
+  <image id="200" name="ecg_test_0259.png" width="924" height="714">
+  </image>
+  <image id="201" name="ecg_test_0260.png" width="2200" height="1700">
+  </image>
+  <image id="202" name="ecg_test_0261.png" width="825" height="637">
+  </image>
+  <image id="203" name="ecg_test_0265.png" width="2200" height="1700">
+  </image>
+  <image id="204" name="ecg_test_0266.png" width="924" height="714">
+  </image>
+  <image id="205" name="ecg_test_0267.png" width="2200" height="1700">
+  </image>
+  <image id="206" name="ecg_test_0268.png" width="2068" height="1598">
+  </image>
+  <image id="207" name="ecg_test_0269.png" width="924" height="714">
+  </image>
+  <image id="208" name="ecg_test_0270.png" width="1496" height="1156">
+  </image>
+  <image id="209" name="ecg_test_0272.png" width="924" height="714">
+  </image>
+  <image id="210" name="ecg_test_0273.png" width="2200" height="1700">
+  </image>
+  <image id="211" name="ecg_test_0274.png" width="924" height="714">
+  </image>
+  <image id="212" name="ecg_test_0275.png" width="2046" height="1581">
+  </image>
+  <image id="213" name="ecg_test_0278.png" width="638" height="493">
+  </image>
+  <image id="214" name="ecg_test_0279.png" width="924" height="714">
+  </image>
+  <image id="215" name="ecg_test_0280.png" width="550" height="425">
+  </image>
+  <image id="216" name="ecg_test_0281.png" width="2200" height="1700">
+  </image>
+  <image id="217" name="ecg_test_0283.png" width="1441" height="1113">
+  </image>
+  <image id="218" name="ecg_test_0285.png" width="2200" height="1700">
+  </image>
+  <image id="219" name="ecg_test_0287.png" width="2200" height="1700">
+  </image>
+  <image id="220" name="ecg_test_0288.png" width="924" height="714">
+  </image>
+  <image id="221" name="ecg_test_0289.png" width="2200" height="1700">
+  </image>
+  <image id="222" name="ecg_test_0290.png" width="924" height="714">
+  </image>
+  <image id="223" name="ecg_test_0291.png" width="583" height="450">
+  </image>
+  <image id="224" name="ecg_test_0292.png" width="2123" height="1640">
+  </image>
+  <image id="225" name="ecg_test_0293.png" width="924" height="714">
+  </image>
+  <image id="226" name="ecg_test_0294.png" width="924" height="714">
+  </image>
+  <image id="227" name="ecg_test_0295.png" width="2200" height="1700">
+  </image>
+  <image id="228" name="ecg_test_0296.png" width="924" height="714">
+  </image>
+  <image id="229" name="ecg_test_0297.png" width="924" height="714">
+  </image>
+  <image id="230" name="ecg_test_0299.png" width="2200" height="1700">
+  </image>
+  <image id="231" name="ecg_test_0300.png" width="2200" height="1700">
+  </image>
+  <image id="232" name="ecg_test_0301.png" width="2134" height="1649">
+  </image>
+  <image id="233" name="ecg_test_0302.png" width="924" height="714">
+  </image>
+  <image id="234" name="ecg_test_0303.png" width="2200" height="1700">
+  </image>
+  <image id="235" name="ecg_test_0304.png" width="924" height="714">
+  </image>
+  <image id="236" name="ecg_test_0305.png" width="2178" height="1683">
+  </image>
+  <image id="237" name="ecg_test_0306.png" width="2200" height="1700">
+  </image>
+  <image id="238" name="ecg_test_0307.png" width="2200" height="1700">
+  </image>
+  <image id="239" name="ecg_test_0309.png" width="924" height="714">
+  </image>
+  <image id="240" name="ecg_test_0311.png" width="2200" height="1700">
+  </image>
+  <image id="241" name="ecg_test_0312.png" width="2200" height="1700">
+  </image>
+  <image id="242" name="ecg_test_0313.png" width="572" height="442">
+  </image>
+  <image id="243" name="ecg_test_0315.png" width="924" height="714">
+  </image>
+  <image id="244" name="ecg_test_0316.png" width="2200" height="1700">
+  </image>
+  <image id="245" name="ecg_test_0317.png" width="924" height="714">
+  </image>
+  <image id="246" name="ecg_test_0322.png" width="990" height="765">
+  </image>
+  <image id="247" name="ecg_test_0323.png" width="583" height="450">
+  </image>
+  <image id="248" name="ecg_test_0325.png" width="880" height="680">
+  </image>
+  <image id="249" name="ecg_test_0327.png" width="2200" height="1700">
+  </image>
+  <image id="250" name="ecg_test_0328.png" width="924" height="714">
+  </image>
+  <image id="251" name="ecg_test_0329.png" width="1507" height="1164">
+  </image>
+  <image id="252" name="ecg_test_0330.png" width="2200" height="1700">
+  </image>
+  <image id="253" name="ecg_test_0331.png" width="2200" height="1700">
+  </image>
+  <image id="254" name="ecg_test_0334.png" width="924" height="714">
+  </image>
+  <image id="255" name="ecg_test_0336.png" width="2200" height="1700">
+  </image>
+  <image id="256" name="ecg_test_0337.png" width="2200" height="1700">
+  </image>
+  <image id="257" name="ecg_test_0338.png" width="2200" height="1700">
+  </image>
+  <image id="258" name="ecg_test_0339.png" width="2200" height="1700">
+  </image>
+  <image id="259" name="ecg_test_0340.png" width="1463" height="1130">
+  </image>
+  <image id="260" name="ecg_test_0341.png" width="2200" height="1700">
+  </image>
+  <image id="261" name="ecg_test_0342.png" width="924" height="714">
+  </image>
+  <image id="262" name="ecg_test_0343.png" width="2200" height="1700">
+  </image>
+  <image id="263" name="ecg_test_0344.png" width="2200" height="1700">
+  </image>
+  <image id="264" name="ecg_test_0346.png" width="924" height="714">
+  </image>
+  <image id="265" name="ecg_test_0347.png" width="2200" height="1700">
+  </image>
+  <image id="266" name="ecg_test_0348.png" width="2200" height="1700">
+  </image>
+  <image id="267" name="ecg_test_0352.png" width="2200" height="1700">
+  </image>
+  <image id="268" name="ecg_test_0353.png" width="924" height="714">
+  </image>
+  <image id="269" name="ecg_test_0354.png" width="924" height="714">
+  </image>
+  <image id="270" name="ecg_test_0355.png" width="2178" height="1683">
+  </image>
+  <image id="271" name="ecg_test_0357.png" width="924" height="714">
+  </image>
+  <image id="272" name="ecg_test_0358.png" width="924" height="714">
+  </image>
+  <image id="273" name="ecg_test_0359.png" width="2200" height="1700">
+  </image>
+  <image id="274" name="ecg_test_0360.png" width="924" height="714">
+  </image>
+  <image id="275" name="ecg_test_0361.png" width="2200" height="1700">
+  </image>
+  <image id="276" name="ecg_test_0362.png" width="2200" height="1700">
+  </image>
+  <image id="277" name="ecg_test_0363.png" width="1331" height="1028">
+  </image>
+  <image id="278" name="ecg_test_0364.png" width="2200" height="1700">
+  </image>
+  <image id="279" name="ecg_test_0365.png" width="2200" height="1700">
+  </image>
+  <image id="280" name="ecg_test_0366.png" width="2200" height="1700">
+  </image>
+  <image id="281" name="ecg_test_0367.png" width="2200" height="1700">
+  </image>
+  <image id="282" name="ecg_test_0368.png" width="2200" height="1700">
+  </image>
+  <image id="283" name="ecg_test_0370.png" width="2200" height="1700">
+  </image>
+  <image id="284" name="ecg_test_0371.png" width="2200" height="1700">
+  </image>
+  <image id="285" name="ecg_test_0372.png" width="2200" height="1700">
+  </image>
+  <image id="286" name="ecg_test_0373.png" width="2200" height="1700">
+  </image>
+  <image id="287" name="ecg_test_0374.png" width="924" height="714">
+  </image>
+  <image id="288" name="ecg_test_0376.png" width="2200" height="1700">
+  </image>
+  <image id="289" name="ecg_test_0378.png" width="924" height="714">
+  </image>
+  <image id="290" name="ecg_test_0379.png" width="924" height="714">
+  </image>
+  <image id="291" name="ecg_test_0380.png" width="2200" height="1700">
+  </image>
+  <image id="292" name="ecg_test_0381.png" width="2200" height="1700">
+  </image>
+  <image id="293" name="ecg_test_0383.png" width="924" height="714">
+  </image>
+  <image id="294" name="ecg_test_0384.png" width="1958" height="1513">
+  </image>
+  <image id="295" name="ecg_test_0385.png" width="1122" height="867">
+  </image>
+  <image id="296" name="ecg_test_0388.png" width="2200" height="1700">
+  </image>
+  <image id="297" name="ecg_test_0389.png" width="2200" height="1700">
+  </image>
+  <image id="298" name="ecg_test_0390.png" width="924" height="714">
+  </image>
+  <image id="299" name="ecg_test_0391.png" width="550" height="425">
+  </image>
+  <image id="300" name="ecg_test_0392.png" width="2200" height="1700">
+  </image>
+  <image id="301" name="ecg_test_0393.png" width="2200" height="1700">
+  </image>
+  <image id="302" name="ecg_test_0396.png" width="924" height="714">
+  </image>
+  <image id="303" name="ecg_test_0397.png" width="2200" height="1700">
+  </image>
+  <image id="304" name="ecg_test_0399.png" width="1826" height="1411">
+  </image>
+  <image id="305" name="ecg_test_0400.png" width="2200" height="1700">
+  </image>
+  <image id="306" name="ecg_test_0401.png" width="2200" height="1700">
+  </image>
+  <image id="307" name="ecg_test_0402.png" width="924" height="714">
+  </image>
+  <image id="308" name="ecg_test_0403.png" width="2200" height="1700">
+  </image>
+  <image id="309" name="ecg_test_0404.png" width="1947" height="1504">
+  </image>
+  <image id="310" name="ecg_test_0405.png" width="2200" height="1700">
+  </image>
+  <image id="311" name="ecg_test_0407.png" width="2200" height="1700">
+  </image>
+  <image id="312" name="ecg_test_0408.png" width="924" height="714">
+  </image>
+  <image id="313" name="ecg_test_0409.png" width="1210" height="935">
+  </image>
+  <image id="314" name="ecg_test_0410.png" width="2156" height="1666">
+  </image>
+  <image id="315" name="ecg_test_0411.png" width="924" height="714">
+  </image>
+  <image id="316" name="ecg_test_0412.png" width="2200" height="1700">
+  </image>
+  <image id="317" name="ecg_test_0415.png" width="924" height="714">
+  </image>
+  <image id="318" name="ecg_test_0416.png" width="924" height="714">
+  </image>
+  <image id="319" name="ecg_test_0417.png" width="2167" height="1674">
+  </image>
+  <image id="320" name="ecg_test_0420.png" width="2200" height="1700">
+  </image>
+  <image id="321" name="ecg_test_0421.png" width="2200" height="1700">
+  </image>
+  <image id="322" name="ecg_test_0422.png" width="2200" height="1700">
+  </image>
+  <image id="323" name="ecg_test_0423.png" width="2200" height="1700">
+  </image>
+  <image id="324" name="ecg_test_0424.png" width="2200" height="1700">
+  </image>
+  <image id="325" name="ecg_test_0426.png" width="2200" height="1700">
+  </image>
+  <image id="326" name="ecg_test_0427.png" width="2200" height="1700">
+  </image>
+  <image id="327" name="ecg_test_0428.png" width="2200" height="1700">
+  </image>
+  <image id="328" name="ecg_test_0429.png" width="2200" height="1700">
+  </image>
+  <image id="329" name="ecg_test_0430.png" width="1298" height="1003">
+  </image>
+  <image id="330" name="ecg_test_0431.png" width="2200" height="1700">
+  </image>
+  <image id="331" name="ecg_test_0432.png" width="924" height="714">
+  </image>
+  <image id="332" name="ecg_test_0433.png" width="924" height="714">
+  </image>
+  <image id="333" name="ecg_test_0434.png" width="924" height="714">
+  </image>
+  <image id="334" name="ecg_test_0435.png" width="2200" height="1700">
+  </image>
+  <image id="335" name="ecg_test_0437.png" width="2200" height="1700">
+  </image>
+  <image id="336" name="ecg_test_0438.png" width="2200" height="1700">
+  </image>
+  <image id="337" name="ecg_test_0439.png" width="924" height="714">
+  </image>
+  <image id="338" name="ecg_test_0440.png" width="2200" height="1700">
+  </image>
+  <image id="339" name="ecg_test_0441.png" width="2200" height="1700">
+  </image>
+  <image id="340" name="ecg_test_0442.png" width="2200" height="1700">
+  </image>
+  <image id="341" name="ecg_test_0443.png" width="2200" height="1700">
+  </image>
+  <image id="342" name="ecg_test_0446.png" width="924" height="714">
+  </image>
+  <image id="343" name="ecg_test_0447.png" width="2200" height="1700">
+  </image>
+  <image id="344" name="ecg_test_0448.png" width="2200" height="1700">
+  </image>
+  <image id="345" name="ecg_test_0449.png" width="2200" height="1700">
+  </image>
+  <image id="346" name="ecg_test_0450.png" width="924" height="714">
+  </image>
+  <image id="347" name="ecg_test_0451.png" width="2200" height="1700">
+  </image>
+  <image id="348" name="ecg_test_0452.png" width="924" height="714">
+  </image>
+  <image id="349" name="ecg_test_0453.png" width="924" height="714">
+  </image>
+  <image id="350" name="ecg_test_0456.png" width="2200" height="1700">
+  </image>
+  <image id="351" name="ecg_test_0457.png" width="924" height="714">
+  </image>
+  <image id="352" name="ecg_test_0458.png" width="2200" height="1700">
+  </image>
+  <image id="353" name="ecg_test_0459.png" width="1683" height="1300">
+  </image>
+  <image id="354" name="ecg_test_0460.png" width="2200" height="1700">
+  </image>
+  <image id="355" name="ecg_test_0461.png" width="2200" height="1700">
+  </image>
+  <image id="356" name="ecg_test_0463.png" width="2200" height="1700">
+  </image>
+  <image id="357" name="ecg_test_0464.png" width="2200" height="1700">
+  </image>
+  <image id="358" name="ecg_test_0465.png" width="924" height="714">
+  </image>
+  <image id="359" name="ecg_test_0466.png" width="924" height="714">
+  </image>
+  <image id="360" name="ecg_test_0467.png" width="2200" height="1700">
+  </image>
+  <image id="361" name="ecg_test_0469.png" width="2200" height="1700">
+  </image>
+  <image id="362" name="ecg_test_0470.png" width="924" height="714">
+  </image>
+  <image id="363" name="ecg_test_0471.png" width="924" height="714">
+  </image>
+  <image id="364" name="ecg_test_0472.png" width="2200" height="1700">
+  </image>
+  <image id="365" name="ecg_test_0473.png" width="924" height="714">
+  </image>
+  <image id="366" name="ecg_test_0474.png" width="924" height="714">
+  </image>
+  <image id="367" name="ecg_test_0475.png" width="924" height="714">
+  </image>
+  <image id="368" name="ecg_test_0477.png" width="924" height="714">
+  </image>
+  <image id="369" name="ecg_test_0478.png" width="2200" height="1700">
+  </image>
+  <image id="370" name="ecg_test_0479.png" width="924" height="714">
+  </image>
+  <image id="371" name="ecg_test_0480.png" width="924" height="714">
+  </image>
+  <image id="372" name="ecg_test_0481.png" width="924" height="714">
+  </image>
+  <image id="373" name="ecg_test_0482.png" width="1210" height="935">
+  </image>
+  <image id="374" name="ecg_test_0483.png" width="924" height="714">
+  </image>
+  <image id="375" name="ecg_test_0484.png" width="924" height="714">
+  </image>
+  <image id="376" name="ecg_test_0485.png" width="2200" height="1700">
+  </image>
+  <image id="377" name="ecg_test_0486.png" width="2200" height="1700">
+  </image>
+  <image id="378" name="ecg_test_0487.png" width="2200" height="1700">
+  </image>
+  <image id="379" name="ecg_test_0488.png" width="2123" height="1640">
+  </image>
+  <image id="380" name="ecg_test_0489.png" width="924" height="714">
+  </image>
+  <image id="381" name="ecg_test_0490.png" width="2200" height="1700">
+  </image>
+  <image id="382" name="ecg_test_0491.png" width="2200" height="1700">
+  </image>
+  <image id="383" name="ecg_test_0492.png" width="2200" height="1700">
+  </image>
+  <image id="384" name="ecg_test_0493.png" width="572" height="442">
+  </image>
+  <image id="385" name="ecg_test_0494.png" width="2200" height="1700">
+  </image>
+  <image id="386" name="ecg_test_0496.png" width="924" height="714">
+  </image>
+  <image id="387" name="ecg_test_0497.png" width="2200" height="1700">
+  </image>
+  <image id="388" name="ecg_test_0498.png" width="2200" height="1700">
+  </image>
+  <image id="389" name="ecg_test_0499.png" width="1969" height="1521">
+  </image>
+</annotations>

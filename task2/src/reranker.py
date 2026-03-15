@@ -1,7 +1,7 @@
 """
 T9: Reranker – CrossEncoder reranking of retrieval candidates.
 
-Runs on CPU to avoid GPU OOM (only 25 pairs per query - fast enough on CPU).
+Runs on GPU if available, falls back to CPU.
 """
 from __future__ import annotations
 
@@ -18,9 +18,10 @@ def _get_reranker() -> CrossEncoder:
     global _reranker_cache
     if _reranker_cache is None:
         cfg = get_config()["reranker"]
-        _reranker_cache = CrossEncoder(cfg["model"], device="cpu")
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        _reranker_cache = CrossEncoder(cfg["model"], device=device)
         _reranker_cache.max_length = cfg.get("max_length", 512)
-        # FP16 on CPU for faster inference (needs PyTorch >= 2.0)
+        # FP16 for faster inference
         _reranker_cache.model.half()
     return _reranker_cache
 

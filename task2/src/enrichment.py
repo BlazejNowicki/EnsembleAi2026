@@ -130,6 +130,8 @@ def _build_embedding_text(chunk: CodeChunk) -> str:
     parts: list[str] = [f"# File: {chunk.file_path}"]
     if chunk.parent_class:
         parts.append(f"# Class: {chunk.parent_class}")
+    if chunk.name:
+        parts.append(f"# Name: {chunk.name}")
     parts.append(chunk.source)
     return "\n".join(parts)
 

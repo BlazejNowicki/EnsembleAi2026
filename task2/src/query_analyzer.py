@@ -126,4 +126,28 @@ def _detect_context(prefix: str) -> tuple[str | None, str | None]:
 
 def _build_dense_query(prefix: str, n_lines: int) -> str:
     lines = prefix.splitlines()
-    return "\n".join(lines[-n_lines:])
+    base_query = "\n".join(lines[-n_lines:])
+    
+    # HyDE with Ollama qwen:0.5b / qwen2.5:0.5b for ultra-fast generation
+    import requests
+    import json
+    try:
+        prompt = f"Summarize the intent of this code in 5 keywords:\n{base_query}"
+        resp = requests.post("http://localhost:11434/api/generate", json={
+            "model": "qwen2.5:0.5b", # you can change it to qwen:0.5b if needed
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "num_predict": 15,
+                "num_ctx": 300,
+                "temperature": 0.1
+            }
+        }, timeout=1.5)
+        if resp.status_code == 200:
+            hyde_keywords = resp.json().get("response", "").strip()
+            if hyde_keywords:
+                base_query = f"{base_query}\n\n# Context Keywords:\n# {hyde_keywords}"
+    except Exception:
+        pass # fail silently if Ollama is not running to not break the pipeline
+        
+    return base_query

@@ -47,4 +47,18 @@ def rerank(
         candidate.score = float(score)
 
     candidates.sort(key=lambda r: r.score, reverse=True)
-    return candidates[:top_k]
+    
+    selected = []
+    current_tokens = 0
+    target_tokens = 14000
+    
+    for c in candidates:
+        # Używamy tokenizera z rerankera (lub prostego szacowania) do zliczenia tokenów
+        chunk_tokens = len(model.tokenizer.encode(c.chunk.source))
+        if current_tokens + chunk_tokens > target_tokens:
+            # opcjonalnie: tniemy ostatni string żeby ubić równo 7000, ale lepiej zostawić cały chunk i nie dodawać więcej
+            break
+        selected.append(c)
+        current_tokens += chunk_tokens
+
+    return selected

@@ -35,18 +35,27 @@ def read_lead_signal(image: np.ndarray) -> np.ndarray:
 
     values = np.array(values)
 
-    # remove nans
+    # remove nans and interpolate to 1250 values
     valid_mask = ~np.isnan(values)
-    old_x = np.linspace(0, 1, len(values))
-    new_x = np.linspace(0, 1, 1250)
-    values = np.interp(new_x, old_x[valid_mask], values[valid_mask])
 
-    # interpolate to 1250 values
-    # print(values)
-    # print(np.isnan(values).sum())
+    # 2. Handle leading NaNs
+    if valid_mask.any():
+        # np.argmax returns the index of the FIRST True value
+        first_valid_idx = np.argmax(valid_mask)
+        # Fill the leading NaNs with 0
+        values[:first_valid_idx] = 0
+        # Update the mask so the new zeros are included in the interpolation
+        valid_mask[:first_valid_idx] = True
+    else:
+        # Edge case: The array is 100% NaNs
+        values[:] = 0
+        valid_mask[:] = True
+
     old_x = np.linspace(0, 1, len(values))
     new_x = np.linspace(0, 1, 1250)
-    values = np.interp(new_x, old_x, values)
+
+    # if all values were nan
+    values = np.interp(new_x, old_x[valid_mask], values[valid_mask])
 
     return values
 
@@ -54,12 +63,12 @@ def read_lead_signal(image: np.ndarray) -> np.ndarray:
 def remove_text(image: np.ndarray) -> np.ndarray:
     h, w = image.shape[:2]
 
-    vertical_gap_mm = 12
+    vertical_gap_mm = 3
     vertical_gap = int(vertical_gap_mm * w / WIDTH_MM)
 
     horizontal_gap = int(0.125 * w)
 
-    image[int(0.5 * h) + vertical_gap:, :horizontal_gap] = 1
+    image[int(0.5 * h) + vertical_gap:, :horizontal_gap] = 0
 
     return image
 

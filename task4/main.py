@@ -30,6 +30,10 @@ def digitize(filename: str, default: bool, annotation: Annotation | None):
     if image is None:
         raise ValueError(f"Failed to load image at {path}. Check file format.")
 
+    # image = cv2.fastNlMeansDenoising(image, None, h=15, templateWindowSize=7, searchWindowSize=21)
+    # image = cv2.bilateralFilter(image, d=5, sigmaColor=30, sigmaSpace=30)
+    # save_step("0_denoised_nlmeans", filename, image)
+
     # image = extract_ink(image, sensitivity=100)
     image = adaptive_extract_ink(image)
 
@@ -57,6 +61,8 @@ def digitize(filename: str, default: bool, annotation: Annotation | None):
         line1 = crop_line_simple(image, x, y1, x_end)
         line2 = crop_line_simple(image, x, y2, x_end)
         line3 = crop_line_simple(image, x, y3, x_end)
+
+    save_step('2_ink_rotation', filename, image * 255)
 
     save_step('2_cropped_1', filename, line1 * 255)
     save_step('2_cropped_2', filename, line2 * 255)

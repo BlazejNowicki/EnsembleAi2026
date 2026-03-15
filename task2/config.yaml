@@ -14,8 +14,8 @@ chunker:
   min_file_lines: 1
 
   # chunks larger than this get split with overlap
-  max_chunk_lines: 200
-  chunk_overlap_lines: 20
+  max_chunk_lines: 150  
+  chunk_overlap_lines: 15
 
 enrichment:
   # python keywords/builtins to ignore in BM25 tokenization

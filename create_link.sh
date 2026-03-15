@@ -1,0 +1,1 @@
+ln -s "/net/tscratch/people/tutorial237/data_task2/Task 2 dataset EnsembleAI 2026" /net/people/tutorial/tutorial237/Adam/data

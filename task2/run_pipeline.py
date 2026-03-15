@@ -1,8 +1,8 @@
 """
-Combined pipeline: index each repo, predict its datapoints, clean up.
+Combined pipeline: index each repo, predict its datapoints.
 
 Models (embedder, reranker) are loaded once and reused across all repos.
-Qdrant collections are built per repo and deleted after prediction.
+Qdrant collections are built per repo and reused if they already exist.
 
 Usage:
     poetry run python run_pipeline.py --stage start --lang python
@@ -17,7 +17,7 @@ from tqdm import tqdm
 
 from src.chunker import chunk_repository, print_stats
 from src.enrichment import enrich_chunks
-from src.qdrant_indexer import build_hybrid_index, get_qdrant_client, _safe_collection_name
+from src.qdrant_indexer import build_hybrid_index
 from src.query_analyzer import analyze_query
 from src.retriever import hybrid_retrieve
 from src.reranker import rerank
@@ -82,8 +82,6 @@ def main():
     # prepare output array (predictions must match input order)
     predictions: list[str | None] = [None] * len(datapoints)
 
-    client = get_qdrant_client()
-
     for repo_root, items in tqdm(repo_groups.items(), desc="Repos"):
         repo_name = os.path.basename(repo_root)
         print(f"\n[{repo_name}]")
@@ -108,10 +106,6 @@ def main():
         # --- PREDICT all datapoints for this repo ---
         for idx, dp in tqdm(items, desc=f"  Predicting ({repo_name})", leave=False):
             predictions[idx] = predict_one(dp, col_name)
-
-        # --- CLEANUP: delete collection to free resources ---
-        client.delete_collection(col_name)
-        print(f"  Cleaned up collection '{col_name}'")
 
     # write predictions in original order
     os.makedirs("predictions", exist_ok=True)

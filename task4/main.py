@@ -45,14 +45,14 @@ def digitize(filename: str, default: bool, annotation: Annotation | None):
         annotation = convert_annotation_to_abs(annotation, image.shape[:2])
         image, annotation = rotate(image, annotation)
 
-        (x1, y1), (x3, y3) = annotation[0], annotation[1]
+        (x1, y1), (x3, y3), (x_end, y_end) = annotation[0], annotation[1], annotation[2]
 
         x = x1
         y2 = (y1 + y3) / 2
 
-        y_delta = y3 - y1
-        x_delta = 50 / 14 * y_delta
-        x_end = x + x_delta
+        # y_delta = y3 - y1
+        # x_delta = 50 / 14 * y_delta
+        # x_end = x + x_delta
 
         line1 = crop_line_simple(image, x, y1, x_end)
         line2 = crop_line_simple(image, x, y2, x_end)
@@ -71,7 +71,7 @@ def main():
         shutil.rmtree(DATA_PATH / 'steps')
 
     png_files = [p.name for p in IMAGES_PATH.glob('*.png')]
-
+    png_files = sorted(png_files)
     # png_files = sorted(png_files)[:3]
     # if not SUBMIT:
     #   png_files = [list(sorted(png_files))[0]]

@@ -68,6 +68,8 @@ def main():
     annotations = load_annotations()
 
     annotations = {k: v for k, v in annotations.items() if v is not None}
+
+    # print(annotations)
     # annotation = annotations['ecg_test_0003.png']
 
     # annotations = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),

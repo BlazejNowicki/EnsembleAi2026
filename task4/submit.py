@@ -39,3 +39,7 @@ def submit():
         data = response.text
 
     print("response:", response.status_code, data)
+
+
+if __name__ == "__main__":
+    submit()

@@ -62,6 +62,7 @@ def main():
 
     png_files = [p.name for p in IMAGES_PATH.glob('*.png')]
 
+    # png_files = sorted(png_files)[:3]
     # if not SUBMIT:
     #   png_files = [list(sorted(png_files))[0]]
 
@@ -70,22 +71,24 @@ def main():
     annotations = {k: v for k, v in annotations.items() if v is not None}
 
     # print(annotations)
-    # annotation = annotations['ecg_test_0003.png']
+    # annotations = annotations['ecg_test_0003.png']
 
     # annotations = ((0.053963636363636366, 0.4165294117647059), (0.05402121212121212, 0.5833450980392156),
     #                (0.05412121212121212, 0.7512666666666666), (0.9484060606060606, 0.4041686274509804),
     #                (0.9482363636363635, 0.5759254901960784), (0.9481999999999999, 0.7446196078431373))
 
-    # (0.054, 0.948)
-
     final_dict = {}
     for file in tqdm(png_files):
-        sub_dict = digitize(file, default=True, annotation=None)
-        # todo: use this code
-        # if file not in annotations:
-        #     sub_dict = digitize(file, default=True, annotation=None)
-        # else:
-        #     sub_dict = digitize(file, default=False, annotation=annotations[file])
+
+        if file not in annotations:
+            sub_dict = digitize(file, default=True, annotation=None)
+        else:
+            (x1, y1), (x2, y2) = annotations[file][0], annotations[file][1]
+
+            if 0.053 < x1 < 0.055 and 0.053 < x2 < 0.055 and 0.40 < y1 < 0.43 and 0.74 < y2 < 0.76:
+                sub_dict = digitize(file, default=True, annotation=None)
+            else:
+                sub_dict = digitize(file, default=False, annotation=annotations[file])
 
         final_dict |= sub_dict
 

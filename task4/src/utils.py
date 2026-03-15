@@ -3,8 +3,8 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-# SUBMIT = True
-SUBMIT = False
+SUBMIT = True
+# SUBMIT = False
 
 if SUBMIT:
     DATA_PATH = Path('ecg')

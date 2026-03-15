@@ -3,7 +3,7 @@ import cv2
 from src.load_annotations import Annotation
 
 def rotate(image: np.ndarray, annotation: Annotation) -> tuple[np.ndarray, Annotation]:
-    p1, p2 = annotation
+    p1, p2, p3 = annotation
 
     # Compute angle of the line p1 → p2
     dx = p2[0] - p1[0]
@@ -26,9 +26,9 @@ def rotate(image: np.ndarray, annotation: Annotation) -> tuple[np.ndarray, Annot
                              borderMode=cv2.BORDER_REPLICATE)
 
     # Rotate annotation points
-    points = np.array([[p1, p2]], dtype=np.float32)
+    points = np.array([[p1, p2, p3]], dtype=np.float32)
     points_rot = cv2.transform(points, M)[0]
-    p1_rot, p2_rot = points_rot
+    p1_rot, p2_rot, p3_rot = points_rot
 
-    annotation_rot = Annotation((tuple(p1_rot), tuple(p2_rot)))
+    annotation_rot = Annotation((tuple(p1_rot), tuple(p2_rot), tuple(p3_rot)))
     return rotated, annotation_rot

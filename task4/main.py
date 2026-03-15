@@ -79,6 +79,12 @@ def main():
     final_dict = {}
     for file in tqdm(png_files):
         sub_dict = digitize(file, default=True, annotation=None)
+        # todo: use this code
+        # if file not in annotations:
+        #     sub_dict = digitize(file, default=True, annotation=None)
+        # else:
+        #     sub_dict = digitize(file, default=False, annotation=annotations[file])
+
         final_dict |= sub_dict
 
     if SUBMIT:

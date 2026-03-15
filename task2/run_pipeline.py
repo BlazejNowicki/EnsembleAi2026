@@ -14,6 +14,7 @@ import os
 import argparse
 from collections import defaultdict
 
+import torch
 import jsonlines
 from tqdm import tqdm
 
@@ -143,6 +144,11 @@ def main():
         print(f"  Enriched: {len(enriched)}")
 
         col_name = build_hybrid_index(enriched, repo_name)
+
+        # free intermediate data after indexing
+        del enriched
+        del chunks
+        torch.cuda.empty_cache()
 
         # --- PREDICT all datapoints for this repo ---
         repo_preds = {}

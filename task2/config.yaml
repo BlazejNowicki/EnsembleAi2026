@@ -56,9 +56,10 @@ enrichment:
     - lambda
 
 embedder:
-  model: "Qwen/Qwen3-Embedding-0.6B"
-  embedding_dim: 1024
-  batch_size: 8
+  model: "ibm-granite/granite-embedding-125m-english"
+  embedding_dim: 768
+  batch_size: 128
+  max_seq_length: 512
 
 fastembed:
   model: "Qdrant/bm25"
@@ -69,6 +70,8 @@ qdrant:
 reranker:
   model: "BAAI/bge-reranker-v2-m3"
   top_k: 10
+  max_length: 512
+  batch_size: 8
 
 query_analyzer:
   recent_lines: 15
